@@ -633,6 +633,21 @@ $(MID_SUBDIR)/mus_vs_rayquaza.s: %.s: %.mid
 $(MID_SUBDIR)/mus_encounter_hiker.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G097 -V076
 
+$(MID_SUBDIR)/mus_dp_jubilife_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V096
+
+$(MID_SUBDIR)/mus_hg_route34.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V092
+
+$(MID_SUBDIR)/mus_hg_global_terminal.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V075
+
+$(MID_SUBDIR)/mus_hg_vs_rival.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V084
+
+$(MID_SUBDIR)/mus_lusamine.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G190 -V070 -P1
+
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
 

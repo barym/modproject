@@ -287,6 +287,11 @@ static bool8 MugshotTrainerPic_Init(struct Sprite *);
 static bool8 MugshotTrainerPic_Slide(struct Sprite *);
 static bool8 MugshotTrainerPic_SlideSlow(struct Sprite *);
 static bool8 MugshotTrainerPic_SlideOffscreen(struct Sprite *);
+//ADDITIONS
+static void Task_Recon(u8 taskId);
+static bool8 Recon_Init(struct Task *);
+static bool8 Recon_SetGfx(struct Task *);
+
 
 static s16 sDebug_RectangularSpiralData;
 static u8 sTestingTransitionId;
@@ -335,6 +340,10 @@ static const u32 sFrontierSquares_EmptyBg_Tileset[] = INCBIN_U32("graphics/battl
 static const u32 sFrontierSquares_Shrink1_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_3.4bpp.lz");
 static const u32 sFrontierSquares_Shrink2_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_4.4bpp.lz");
 static const u32 sFrontierSquares_Tilemap[] = INCBIN_U32("graphics/battle_transitions/frontier_squares.bin");
+//ADDITION
+static const u32 sRecon_Palette[] = INCBIN_U32("graphics/battle_transitions/recon.gbapal");
+static const u32 sRecon_Tileset[] = INCBIN_U32("graphics/battle_transitions/recon.4bpp.lz");
+static const u32 sRecon_Tilemap[] = INCBIN_U32("graphics/battle_transitions/recon.bin.lz");
 
 // All battle transitions use the same intro
 static const TaskFunc sTasks_Intro[B_TRANSITION_COUNT] =
@@ -388,6 +397,8 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_FRONTIER_CIRCLES_CROSS_IN_SEQ] = Task_FrontierCirclesCrossInSeq,
     [B_TRANSITION_FRONTIER_CIRCLES_ASYMMETRIC_SPIRAL_IN_SEQ] = Task_FrontierCirclesAsymmetricSpiralInSeq,
     [B_TRANSITION_FRONTIER_CIRCLES_SYMMETRIC_SPIRAL_IN_SEQ] = Task_FrontierCirclesSymmetricSpiralInSeq,
+    //ADDITIONS
+    [B_TRANSITION_RECON] = Task_Recon,
 };
 
 static const TransitionStateFunc sTaskHandlers[] =
@@ -496,6 +507,18 @@ static const TransitionStateFunc sPokeballsTrail_Funcs[] =
     PokeballsTrail_Init,
     PokeballsTrail_Main,
     PokeballsTrail_End
+};
+
+//ADDITIONS
+static const TransitionStateFunc sRecon_Funcs[] =
+{
+    Recon_Init,
+    Recon_SetGfx,
+    PatternWeave_Blend1,
+    PatternWeave_Blend2,
+    PatternWeave_FinishAppear,
+    FramesCountdown,
+    PatternWeave_CircularMask
 };
 
 #define NUM_POKEBALL_TRAILS 5
@@ -1373,6 +1396,12 @@ static void Task_Kyogre(u8 taskId)
     while (sKyogre_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
+//ADDITIONS
+static void Task_Recon(u8 taskId)
+{
+    while(sRecon_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
 static void InitPatternWeaveTransition(struct Task *task)
 {
     s32 i;
@@ -1454,6 +1483,35 @@ static bool8 BigPokeball_Init(struct Task *task)
     task->tState++;
     return FALSE;
 }
+
+//ADDITIONS
+static bool8 Recon_Init(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tEndDelay = 60;
+    InitPatternWeaveTransition(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, BG_SCREEN_SIZE);
+    LZ77UnCompVram(sRecon_Tileset, tileset);
+    LoadPalette(sRecon_Palette, 0xF0, sizeof(sRecon_Palette));
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Recon_SetGfx(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sRecon_Tilemap, tilemap);
+    SetSinWave(gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
+
+    task->tState++;
+    return FALSE;
+}
+
 
 static bool8 BigPokeball_SetGfx(struct Task *task)
 {

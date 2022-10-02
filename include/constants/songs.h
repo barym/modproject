@@ -541,6 +541,13 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
+//ADDITION
+#define MUS_LUSAMINE                610
+#define MUS_DP_JUBILIFE_DAY         611
+#define MUS_HG_ROUTE34              612
+#define MUS_HG_GLOBAL_TERMINAL      613
+#define MUS_HG_VS_RIVAL             614
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF
