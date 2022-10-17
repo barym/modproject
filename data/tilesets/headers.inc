@@ -840,4 +840,4 @@ gTileset_Kentro::
 	.4byte gTilesetPalettes_Kentro
 	.4byte gMetatiles_Kentro
 	.4byte gMetatileAttributes_Kentro
-	.4byte NULL
+	.4byte InitTilesetAnim_Kentro
