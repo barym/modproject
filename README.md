@@ -1,4 +1,4 @@
-#WIP MOD OF EMERALD DECOMP
+# WIP MOD OF EMERALD DECOMP
 
 # Pokémon Emerald
 
