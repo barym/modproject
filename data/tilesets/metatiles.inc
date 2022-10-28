@@ -565,3 +565,10 @@ gMetatiles_Kentro::
 	.align 1
 gMetatileAttributes_Kentro::
 	.incbin "data/tilesets/secondary/kentro/metatile_attributes.bin"
+	.align 1
+gMetatiles_Limani::
+	.incbin "data/tilesets/secondary/limani/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Limani::
+	.incbin "data/tilesets/secondary/limani/metatile_attributes.bin"

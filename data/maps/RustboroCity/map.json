@@ -304,11 +304,11 @@
       "dest_warp_id": 0
     },
     {
-      "x": 30,
-      "y": 28,
+      "x": 42,
+      "y": 47,
       "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY_HOUSE2",
-      "dest_warp_id": 0
+      "dest_map": "MAP_SLATEPORT_CITY",
+      "dest_warp_id": 3
     },
     {
       "x": 5,

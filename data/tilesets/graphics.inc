@@ -1749,3 +1749,23 @@ gTilesetPalettes_Kentro::
 	.align 2
 gTilesetTiles_Kentro::
 	.incbin "data/tilesets/secondary/kentro/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Limani::
+	.incbin "data/tilesets/secondary/limani/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/limani/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Limani::
+	.incbin "data/tilesets/secondary/limani/tiles.4bpp.lz"

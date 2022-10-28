@@ -1497,7 +1497,7 @@ static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8 taskId)
 
 static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
 {
-    int gender = NewGameBirchSpeech_ProcessGenderMenuInput();
+    int gender = NewGameBirchSpeech_ProcessGenderMenuInput(); //FORCE GENDER
     int gender2;
 
     switch (gender)

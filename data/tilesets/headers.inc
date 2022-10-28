@@ -841,3 +841,14 @@ gTileset_Kentro::
 	.4byte gMetatiles_Kentro
 	.4byte gMetatileAttributes_Kentro
 	.4byte InitTilesetAnim_Kentro
+
+	.align 2
+gTileset_Limani::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Limani
+	.4byte gTilesetPalettes_Limani
+	.4byte gMetatiles_Limani
+	.4byte gMetatileAttributes_Limani
+	.4byte NULL
