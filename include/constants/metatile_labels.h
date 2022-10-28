@@ -297,7 +297,7 @@
 #define METATILE_Lilycove_Wailmer3         0x2A1
 
 // gTileset_Limani
-#define METATILE_Limani_Door_Gym  0x35B
+#define METATILE_Limani_Research_Tower_Door  0x35B
 
 // gTileset_MauvilleGym
 #define METATILE_MauvilleGym_FloorTile        0x21A
