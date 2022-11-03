@@ -1634,3 +1634,47 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
 };
 
 const u32 gTilesetTiles_UnionRoom[] = INCBIN_U32("data/tilesets/secondary/union_room/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Kentro[][16] =
+{
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/00.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/01.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/02.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/03.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/04.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/05.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/06.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/07.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/08.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/09.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/10.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/11.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/12.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/13.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/14.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/kentro/palettes/15.gbapal"),
+};
+
+const u32 gTilesetTiles_Kentro[] = INCBIN_U32("data/tilesets/secondary/kentro/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Limani[][16] =
+{
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/00.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/01.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/02.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/03.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/04.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/05.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/06.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/07.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/08.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/09.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/10.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/11.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/12.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/13.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/14.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/limani/palettes/15.gbapal"),
+};
+
+const u32 gTilesetTiles_Limani[] = INCBIN_U32("data/tilesets/secondary/limani/tiles.4bpp.lz");
