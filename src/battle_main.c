@@ -513,6 +513,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_RECON, 5},
     {TRAINER_CLASS_RECON_LEADER, 20},
+    {TRAINER_CLASS_RIVALE, 20},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -4957,20 +4958,21 @@ static void HandleEndTurn_BattleWon(void)
         case TRAINER_CLASS_TEAM_AQUA:
         case TRAINER_CLASS_TEAM_MAGMA:
         case TRAINER_CLASS_AQUA_ADMIN:
-        case TRAINER_CLASS_AQUA_LEADER:
         case TRAINER_CLASS_MAGMA_ADMIN:
-        case TRAINER_CLASS_MAGMA_LEADER:
+        case TRAINER_CLASS_RECON:
             PlayBGM(MUS_VICTORY_AQUA_MAGMA);
             break;
         case TRAINER_CLASS_LEADER:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
-        //ADDITION
-        case TRAINER_CLASS_RECON:
+        case TRAINER_CLASS_MAGMA_LEADER:
+        case TRAINER_CLASS_AQUA_LEADER:
         case TRAINER_CLASS_RECON_LEADER:
-            PlayBGM(MUS_VICTORY_AQUA_MAGMA);
+            PlayBGM(MUS_HG_VICTORY_FRONTIER_BRAIN);
             break;
-
+        case TRAINER_CLASS_RIVALE:
+            PlayBGM(MUS_HG_VICTORY_TRAINER);
+            break;
         default:
             PlayBGM(MUS_VICTORY_TRAINER);
             break;

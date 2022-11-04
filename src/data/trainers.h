@@ -3999,10 +3999,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ALLEN] =
     {
-        .trainerClass = TRAINER_CLASS_RECON_LEADER,
+        .trainerClass = TRAINER_CLASS_RIVALE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_RECON_LEADER,
-        .trainerName = _("ALIANA"),
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("MAY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,

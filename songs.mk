@@ -2131,7 +2131,7 @@ $(MID_SUBDIR)/mus_hg_vs_gym_leader_kanto.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V075
 
 $(MID_SUBDIR)/mus_hg_victory_trainer.s: %.s: %.mid
-	$(MID) $< $@ -E -R0 -G229 -V110
+	$(MID) $< $@ -E -R0 -G229 -V120
 
 $(MID_SUBDIR)/mus_hg_victory_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V110

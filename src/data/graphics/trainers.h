@@ -289,7 +289,6 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
 
-//ADDITIONS
 const u32 gTrainerFrontPic_ReconF[] = INCBIN_U32("graphics/trainers/front_pics/recon_f_front_pic.4bpp.lz");
 const u32 gTrainerPalette_ReconF[] = INCBIN_U32("graphics/trainers/palettes/recon_f.gbapal.lz");
 
