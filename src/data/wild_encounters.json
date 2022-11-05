@@ -8671,7 +8671,7 @@
           }
         },
         {
-          "map": "MAP_SLATEPORT_CITY",
+          "map": "MAP_LIMANI_CITY",
           "base_label": "gSlateportCity",
           "water_mons": {
             "encounter_rate": 4,

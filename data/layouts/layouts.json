@@ -12,14 +12,14 @@
       "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
     },
     {
-      "id": "LAYOUT_SLATEPORT_CITY",
-      "name": "SlateportCity_Layout",
+      "id": "LAYOUT_LIMANI_CITY",
+      "name": "LimaniCity_Layout",
       "width": 75,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Limani",
-      "border_filepath": "data/layouts/SlateportCity/border.bin",
-      "blockdata_filepath": "data/layouts/SlateportCity/map.bin"
+      "border_filepath": "data/layouts/LimaniCity/border.bin",
+      "blockdata_filepath": "data/layouts/LimaniCity/map.bin"
     },
     {
       "id": "LAYOUT_MAUVILLE_CITY",

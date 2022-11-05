@@ -41,12 +41,12 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Petalburg_0,
     },
     {
-        .mapSecId = MAPSEC_SLATEPORT_CITY,
+        .mapSecId = MAPSEC_LIMANI_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Slateport_0,
     },
     {
-        .mapSecId = MAPSEC_SLATEPORT_CITY,
+        .mapSecId = MAPSEC_LIMANI_CITY,
         .index = 1,
         .tilemap = gPokenavCityMap_Slateport_1,
     },

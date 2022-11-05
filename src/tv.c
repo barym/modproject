@@ -2682,8 +2682,8 @@ static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
     switch (newsKind)
     {
     case POKENEWS_SLATEPORT:
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SLATEPORT_CITY)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SLATEPORT_CITY)
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LIMANI_CITY)
+         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(LIMANI_CITY)
          && gSpecialVar_LastTalked == LOCALID_SLATEPORT_ENERGY_GURU)
             return TRUE;
         return FALSE;

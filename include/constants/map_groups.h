@@ -7,7 +7,7 @@
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (0 << 8))
-#define MAP_SLATEPORT_CITY      (1 | (0 << 8))
+#define MAP_LIMANI_CITY         (1 | (0 << 8))
 #define MAP_MAUVILLE_CITY       (2 | (0 << 8))
 #define MAP_RUSTBORO_CITY       (3 | (0 << 8))
 #define MAP_FORTREE_CITY        (4 | (0 << 8))
