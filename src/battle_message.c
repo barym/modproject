@@ -2091,7 +2091,6 @@ void BufferStringBattle(u16 stringID)
     case STRINGID_INTROMSG: // first battle msg
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            FlagSet(FLAG_CHALLENGE_BATTLE);
             if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI)
