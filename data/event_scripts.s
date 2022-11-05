@@ -104,7 +104,7 @@ gStdScripts_End::
 	.include "data/maps/PetalburgCity/scripts.inc"
 	.include "data/maps/LimaniCity/scripts.inc"
 	.include "data/maps/MauvilleCity/scripts.inc"
-	.include "data/maps/RustboroCity/scripts.inc"
+	.include "data/maps/KentroCity/scripts.inc"
 	.include "data/maps/FortreeCity/scripts.inc"
 	.include "data/maps/LilycoveCity/scripts.inc"
 	.include "data/maps/MossdeepCity/scripts.inc"

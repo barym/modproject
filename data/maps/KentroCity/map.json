@@ -1,9 +1,9 @@
 {
-  "id": "MAP_RUSTBORO_CITY",
-  "name": "RustboroCity",
-  "layout": "LAYOUT_RUSTBORO_CITY",
+  "id": "MAP_KENTRO_CITY",
+  "name": "KentroCity",
+  "layout": "LAYOUT_KENTRO_CITY",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_RUSTBORO_CITY",
+  "region_map_section": "MAPSEC_KENTRO_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_CITY",
