@@ -9,8 +9,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_OLDALE_TOWN",
-      "name": "OLDALE TOWN",
+      "map_section": "MAPSEC_ASRELIA_TOWN",
+      "name": "ASRELIA TOWN",
       "x": 4,
       "y": 9,
       "width": 1,
@@ -153,8 +153,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_104",
-      "name": "ROUTE 104",
+      "map_section": "MAPSEC_ROUTE_304",
+      "name": "ROUTE 304",
       "x": 0,
       "y": 7,
       "width": 1,

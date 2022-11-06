@@ -1,9 +1,9 @@
 {
-  "id": "MAP_OLDALE_TOWN",
-  "name": "OldaleTown",
-  "layout": "LAYOUT_OLDALE_TOWN",
+  "id": "MAP_ASRELIA_TOWN",
+  "name": "AsreliaTown",
+  "layout": "LAYOUT_ASRELIA_TOWN",
   "music": "MUS_OLDALE",
-  "region_map_section": "MAPSEC_OLDALE_TOWN",
+  "region_map_section": "MAPSEC_ASRELIA_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",

@@ -1,9 +1,9 @@
 {
-  "id": "MAP_ROUTE104",
-  "name": "Route104",
-  "layout": "LAYOUT_ROUTE104",
+  "id": "MAP_ROUTE304",
+  "name": "Route304",
+  "layout": "LAYOUT_ROUTE304",
   "music": "MUS_HG_ROUTE34",
-  "region_map_section": "MAPSEC_ROUTE_104",
+  "region_map_section": "MAPSEC_ROUTE_304",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

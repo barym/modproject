@@ -2,13 +2,13 @@
 #define GUARD_REGIONMAPSEC_H
 
 #define MAPSEC_LITTLEROOT_TOWN              0x00
-#define MAPSEC_OLDALE_TOWN                  0x01
+#define MAPSEC_ASRELIA_TOWN                 0x01
 #define MAPSEC_DEWFORD_TOWN                 0x02
 #define MAPSEC_LAVARIDGE_TOWN               0x03
 #define MAPSEC_FALLARBOR_TOWN               0x04
 #define MAPSEC_VERDANTURF_TOWN              0x05
 #define MAPSEC_PACIFIDLOG_TOWN              0x06
-#define MAPSEC_ELUSINA_CITY               0x07
+#define MAPSEC_ELUSINA_CITY                 0x07
 #define MAPSEC_LIMANI_CITY                  0x08
 #define MAPSEC_MAUVILLE_CITY                0x09
 #define MAPSEC_KENTRO_CITY                  0x0A
@@ -20,7 +20,7 @@
 #define MAPSEC_ROUTE_301                    0x10
 #define MAPSEC_ROUTE_302                    0x11
 #define MAPSEC_ROUTE_103                    0x12
-#define MAPSEC_ROUTE_104                    0x13
+#define MAPSEC_ROUTE_304                    0x13
 #define MAPSEC_ROUTE_105                    0x14
 #define MAPSEC_ROUTE_106                    0x15
 #define MAPSEC_ROUTE_107                    0x16

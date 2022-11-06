@@ -102,14 +102,14 @@
       "blockdata_filepath": "data/layouts/LittlerootTown/map.bin"
     },
     {
-      "id": "LAYOUT_OLDALE_TOWN",
-      "name": "OldaleTown_Layout",
+      "id": "LAYOUT_ASRELIA_TOWN",
+      "name": "AsreliaTown_Layout",
       "width": 38,
       "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/OldaleTown/border.bin",
-      "blockdata_filepath": "data/layouts/OldaleTown/map.bin"
+      "border_filepath": "data/layouts/AsreliaTown/border.bin",
+      "blockdata_filepath": "data/layouts/AsreliaTown/map.bin"
     },
     {
       "id": "LAYOUT_DEWFORD_TOWN",
@@ -192,14 +192,14 @@
       "blockdata_filepath": "data/layouts/Route103/map.bin"
     },
     {
-      "id": "LAYOUT_ROUTE104",
-      "name": "Route104_Layout",
+      "id": "LAYOUT_ROUTE304",
+      "name": "Route304_Layout",
       "width": 42,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
-      "border_filepath": "data/layouts/Route104/border.bin",
-      "blockdata_filepath": "data/layouts/Route104/map.bin"
+      "border_filepath": "data/layouts/Route304/border.bin",
+      "blockdata_filepath": "data/layouts/Route304/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE105",

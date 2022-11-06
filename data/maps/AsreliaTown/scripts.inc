@@ -2,7 +2,7 @@
 .set LOCALID_FOOTPRINTS_MAN, 3
 .set LOCALID_RIVAL, 4
 
-OldaleTown_MapScripts::
+AsreliaTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
 	.byte 0
 
