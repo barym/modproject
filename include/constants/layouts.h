@@ -5,7 +5,7 @@
 // DO NOT MODIFY THIS FILE! It is auto-generated from data/layouts/layouts.json
 //
 
-#define LAYOUT_PETALBURG_CITY 1
+#define LAYOUT_ELUSINA_CITY 1
 #define LAYOUT_LIMANI_CITY 2
 #define LAYOUT_MAUVILLE_CITY 3
 #define LAYOUT_KENTRO_CITY 4

@@ -2,14 +2,14 @@
   "layouts_table_label": "gMapLayouts",
   "layouts": [
     {
-      "id": "LAYOUT_PETALBURG_CITY",
-      "name": "PetalburgCity_Layout",
+      "id": "LAYOUT_ELUSINA_CITY",
+      "name": "ElusinaCity_Layout",
       "width": 46,
       "height": 32,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
-      "border_filepath": "data/layouts/PetalburgCity/border.bin",
-      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin"
+      "border_filepath": "data/layouts/ElusinaCity/border.bin",
+      "blockdata_filepath": "data/layouts/ElusinaCity/map.bin"
     },
     {
       "id": "LAYOUT_LIMANI_CITY",

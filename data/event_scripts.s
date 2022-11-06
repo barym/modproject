@@ -101,7 +101,7 @@ gStdScripts::
 	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
 gStdScripts_End::
 
-	.include "data/maps/PetalburgCity/scripts.inc"
+	.include "data/maps/ElusinaCity/scripts.inc"
 	.include "data/maps/LimaniCity/scripts.inc"
 	.include "data/maps/MauvilleCity/scripts.inc"
 	.include "data/maps/KentroCity/scripts.inc"

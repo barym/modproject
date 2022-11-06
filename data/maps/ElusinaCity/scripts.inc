@@ -4,7 +4,7 @@
 .set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
 
-PetalburgCity_MapScripts::
+ElusinaCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_OnFrame
 	.byte 0
@@ -46,8 +46,8 @@ PetalburgCity_EventScript_WallyTutorial::
 	special StartWallyTutorialBattle
 	waitstate
 	msgbox Route102_Text_WallyIDidIt, MSGBOX_DEFAULT
-	applymovement LOCALID_WALLY, Common_Movement_WalkInPlaceFasterLeft, MAP_PETALBURG_CITY
-	waitmovement LOCALID_WALLY, MAP_PETALBURG_CITY
+	applymovement LOCALID_WALLY, Common_Movement_WalkInPlaceFasterLeft, MAP_ELUSINA_CITY
+	waitmovement LOCALID_WALLY, MAP_ELUSINA_CITY
 	msgbox Route102_Text_LetsGoBack, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
@@ -75,7 +75,7 @@ PetalburgCity_EventScript_WalkToWallyHouse::
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_WalkInsideHousePlayer
 	waitmovement 0
 	setflag FLAG_HIDE_PETALBURG_CITY_WALLYS_DAD
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_PETALBURG_CITY
+	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_ELUSINA_CITY
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	clearflag FLAG_HIDE_MAP_NAME_POPUP

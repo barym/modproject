@@ -8,7 +8,7 @@
 #define MAPSEC_FALLARBOR_TOWN               0x04
 #define MAPSEC_VERDANTURF_TOWN              0x05
 #define MAPSEC_PACIFIDLOG_TOWN              0x06
-#define MAPSEC_PETALBURG_CITY               0x07
+#define MAPSEC_ELUSINA_CITY               0x07
 #define MAPSEC_LIMANI_CITY                  0x08
 #define MAPSEC_MAUVILLE_CITY                0x09
 #define MAPSEC_KENTRO_CITY                  0x0A

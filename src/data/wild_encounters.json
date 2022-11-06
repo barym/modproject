@@ -9027,7 +9027,7 @@
           }
         },
         {
-          "map": "MAP_PETALBURG_CITY",
+          "map": "MAP_ELUSINA_CITY",
           "base_label": "gPetalburgCity",
           "water_mons": {
             "encounter_rate": 1,
