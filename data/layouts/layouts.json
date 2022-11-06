@@ -162,14 +162,14 @@
       "blockdata_filepath": "data/layouts/PacifidlogTown/map.bin"
     },
     {
-      "id": "LAYOUT_ROUTE101",
-      "name": "Route101_Layout",
+      "id": "LAYOUT_ROUTE301",
+      "name": "Route301_Layout",
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route101/border.bin",
-      "blockdata_filepath": "data/layouts/Route101/map.bin"
+      "border_filepath": "data/layouts/Route301/border.bin",
+      "blockdata_filepath": "data/layouts/Route301/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE102",
