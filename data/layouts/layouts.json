@@ -15,7 +15,7 @@
       "id": "LAYOUT_LIMANI_CITY",
       "name": "LimaniCity_Layout",
       "width": 75,
-      "height": 60,
+      "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Limani",
       "border_filepath": "data/layouts/LimaniCity/border.bin",
@@ -224,10 +224,10 @@
     {
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
-      "width": 60,
-      "height": 20,
+      "width": 57,
+      "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Limani",
       "border_filepath": "data/layouts/Route107/border.bin",
       "blockdata_filepath": "data/layouts/Route107/map.bin"
     },
