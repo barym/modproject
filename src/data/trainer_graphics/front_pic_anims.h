@@ -301,7 +301,21 @@ static const union AnimCmd *const sAnims_Brendan[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd sAnim_May_1[] ={
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 50),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_May[] ={
+    sAnim_GeneralFrame0,
+    sAnim_May_1,
     sAnim_GeneralFrame0,
 };
 
@@ -414,7 +428,7 @@ static const union AnimCmd sAnim_Cynthia_1[] ={
 };
 
 static const union AnimCmd *const sAnims_Cynthia[] ={
-    sAnim_GeneralFrame1,
+    sAnim_GeneralFrame0,
     sAnim_Cynthia_1,
     sAnim_GeneralFrame0,
 };

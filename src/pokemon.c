@@ -6405,7 +6405,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_RECON:
             return MUS_HG_VS_RIVAL;
         case TRAINER_CLASS_RIVALE:
-            return MUS_DP_VS_CHAMPION;
+            return MUS_HG_VS_RIVAL;
         default:
             return MUS_VS_TRAINER;
         }
