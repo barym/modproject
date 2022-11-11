@@ -118,6 +118,18 @@ static const union AnimCmd sAnim_GeneralFrame0[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_GeneralFrame1[] =
+{
+    ANIMCMD_FRAME(1, 0),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GeneralFrame2[] =
+{
+    ANIMCMD_FRAME(2, 0),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_GeneralFrame3[] =
 {
     ANIMCMD_FRAME(3, 0),

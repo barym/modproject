@@ -3554,6 +3554,8 @@ static void BattleIntroPrintTrainerWantsToBattle(void)
     if (gBattleControllerExecFlags == 0)
     {
         gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        DoTrainerFrontSpriteAnimation(&gSprites[gBattlerSpriteIds[gActiveBattler]]);
+        StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], 1);
         PrepareStringBattle(STRINGID_INTROMSG, gActiveBattler);
         gBattleMainFunc = BattleIntroPrintOpponentSendsOut;
     }

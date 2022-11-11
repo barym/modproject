@@ -1,3 +1,18 @@
+static const union AnimCmd sAnim_EXAMPLE_1[] ={
+    ANIMCMD_FRAME(1, 33),   //FRAME NUMBER, FRAME LENGTH
+    ANIMCMD_FRAME(0, 33),
+    ANIMCMD_FRAME(1, 33),
+    ANIMCMD_FRAME(0, 50),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_EXAMPLE[] =
+{
+    sAnim_GeneralFrame1,
+    sAnim_EXAMPLE_1,
+    sAnim_GeneralFrame0,
+};
+
 static const union AnimCmd *const sAnims_Hiker[] ={
     sAnim_GeneralFrame0,
 };

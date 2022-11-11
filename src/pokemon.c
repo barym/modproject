@@ -1844,6 +1844,16 @@ static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
     [SPECIES_RAYQUAZA - 1]   = 60,
 };
 
+static const u8 sTrainerFrontAnimIdsTable[] =
+{
+    [TRAINER_PIC_LEADER_NORMAN] = ANIM_V_SHAKE,
+};
+
+static const u8 sTrainerAnimationDelayTable[] =
+{
+    [TRAINER_PIC_LEADER_NORMAN] = 33,
+};
+
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6
 #define PP_UP_SHIFTS_INV(val) (u8)~(val), (u8)~((val) << 2), (u8)~((val) << 4), (u8)~((val) << 6)
 
@@ -6768,6 +6778,22 @@ void DoMonFrontSpriteAnimation(struct Sprite *sprite, u16 species, bool8 noCry, 
             LaunchAnimationTaskForFrontSprite(sprite, sMonFrontAnimIdsTable[species - 1]);
         }
         sprite->callback = SpriteCallbackDummy_2;
+    }
+}
+
+void DoTrainerFrontSpriteAnimation(struct Sprite* sprite)
+{
+    if(sTrainerFrontAnimIdsTable[sprite->oam.affineParam] != 0)
+    {
+        if(sTrainerAnimationDelayTable[sprite->oam.affineParam] != 0)
+        {
+            u8 taskId = CreateTask(Task_AnimateAfterDelay, 0);
+            STORE_PTR_IN_TASK(sprite, taskId, 0);
+            gTasks[taskId].sAnimId = sTrainerFrontAnimIdsTable[sprite->oam.affineParam];
+            gTasks[taskId].sAnimId = sTrainerAnimationDelayTable[sprite->oam.affineParam];
+        }
+        else
+            LaunchAnimationTaskForFrontSprite(sprite, sTrainerFrontAnimIdsTable[sprite->oam.affineParam]);
     }
 }
 
