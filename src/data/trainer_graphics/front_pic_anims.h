@@ -398,6 +398,26 @@ static const union AnimCmd *const sAnims_ReconLeader[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd sAnim_Cynthia_1[] ={
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(2, 50),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Cynthia[] ={
+    sAnim_GeneralFrame1,
+    sAnim_Cynthia_1,
+    sAnim_GeneralFrame0,
+};
 
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
@@ -494,7 +514,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_LEAF] = sAnims_Leaf,
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
-    [TRAINER_PIC_RECON_F] = sAnims_ReconF, //ADDITIONS
+    [TRAINER_PIC_RECON_F] = sAnims_ReconF,
     [TRAINER_PIC_RECON_M] = sAnims_ReconM,
     [TRAINER_PIC_RECON_LEADER] = sAnims_ReconLeader,
+    [TRAINER_PIC_CYNTHIA] = sAnims_Cynthia,
 };

@@ -109,10 +109,10 @@
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
-//ADDITIONS
 #define TRAINER_PIC_RECON_F               93
 #define TRAINER_PIC_RECON_M               94
 #define TRAINER_PIC_RECON_LEADER          95
+#define TRAINER_PIC_CYNTHIA               96
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

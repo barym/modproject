@@ -1846,12 +1846,12 @@ static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
 
 static const u8 sTrainerFrontAnimIdsTable[] =
 {
-    [TRAINER_PIC_LEADER_NORMAN] = ANIM_V_SHAKE,
+    [TRAINER_PIC_CYNTHIA] = ANIM_V_SHAKE,
 };
 
 static const u8 sTrainerAnimationDelayTable[] =
 {
-    [TRAINER_PIC_LEADER_NORMAN] = 33,
+    [TRAINER_PIC_CYNTHIA] = 33,
 };
 
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6
@@ -6405,7 +6405,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_RECON:
             return MUS_HG_VS_RIVAL;
         case TRAINER_CLASS_RIVALE:
-            return MUS_HG_VS_RIVAL;
+            return MUS_DP_VS_CHAMPION;
         default:
             return MUS_VS_TRAINER;
         }

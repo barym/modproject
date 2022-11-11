@@ -2963,15 +2963,15 @@ extern const u32 gTrainerFrontPic_Leaf[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
 
-//ADDITIONS
+
 extern const u32 gTrainerFrontPic_ReconF[];
 extern const u32 gTrainerPalette_ReconF[];
-
 extern const u32 gTrainerFrontPic_ReconM[];
 extern const u32 gTrainerPalette_ReconM[];
-
 extern const u32 gTrainerFrontPic_ReconLeader[];
 extern const u32 gTrainerPalette_ReconLeader[];
+extern const u32 gTrainerFrontPic_Cynthia[];
+extern const u32 gTrainerPalette_Cynthia[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];

@@ -93,9 +93,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_LEAF] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
-    [TRAINER_PIC_RECON_F] = {.size = 8, .y_offset = 1}, //ADDITIONS
+    [TRAINER_PIC_RECON_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_M] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_LEADER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_CYNTHIA] = {.size = 8, .y_offset = 2},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -195,9 +196,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(LEAF, gTrainerFrontPic_Leaf, 0x800),
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan, 0x800),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, 0x800),
-    TRAINER_SPRITE(RECON_F, gTrainerFrontPic_ReconF, 0x800), //ADDITIONS
+    TRAINER_SPRITE(RECON_F, gTrainerFrontPic_ReconF, 0x800),
     TRAINER_SPRITE(RECON_M, gTrainerFrontPic_ReconM, 0x800),
     TRAINER_SPRITE(RECON_LEADER, gTrainerFrontPic_ReconLeader, 0x800),
+    TRAINER_SPRITE(CYNTHIA, gTrainerFrontPic_Cynthia, 0x1800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -297,7 +299,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(LEAF, gTrainerPalette_Leaf),
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
-    TRAINER_PAL(RECON_F, gTrainerPalette_ReconF), //ADDITIONS
+    TRAINER_PAL(RECON_F, gTrainerPalette_ReconF),
     TRAINER_PAL(RECON_M, gTrainerPalette_ReconM),
     TRAINER_PAL(RECON_LEADER, gTrainerPalette_ReconLeader),
+    TRAINER_PAL(CYNTHIA, gTrainerPalette_Cynthia),
 };
