@@ -302,8 +302,7 @@ static const union AnimCmd *const sAnims_Brendan[] ={
 };
 
 static const union AnimCmd sAnim_May_1[] ={
-    ANIMCMD_FRAME(1, 20),
-    ANIMCMD_FRAME(0, 30),
+    //throw ball 3 times
     ANIMCMD_FRAME(1, 20),
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_FRAME(1, 20),

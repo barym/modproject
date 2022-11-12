@@ -1,9 +1,9 @@
 {
-  "id": "MAP_CAVE_OF_ORIGIN_1F",
-  "name": "CaveOfOrigin_1F",
-  "layout": "LAYOUT_CAVE_OF_ORIGIN_1F",
-  "music": "MUS_CAVE_OF_ORIGIN",
-  "region_map_section": "MAPSEC_CAVE_OF_ORIGIN",
+  "id": "MAP_SEADUST_CAVE_1F",
+  "name": "SeadustCave_1F",
+  "layout": "LAYOUT_SEADUST_CAVE_1F",
+  "music": "MUS_HG_ROCK_TUNNEL",
+  "region_map_section": "MAPSEC_GRANITE_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -18,17 +18,17 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 17,
-      "elevation": 3,
-      "dest_map": "MAP_CAVE_OF_ORIGIN_ENTRANCE",
-      "dest_warp_id": "1"
+      "x": 6,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE108",
+      "dest_warp_id": "0"
     },
     {
-      "x": 14,
+      "x": 15,
       "y": 5,
-      "elevation": 3,
-      "dest_map": "MAP_CAVE_OF_ORIGIN_B1F",
+      "elevation": 0,
+      "dest_map": "MAP_SEADUST_CAVE_B1F",
       "dest_warp_id": "0"
     }
   ],

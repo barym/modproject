@@ -114,10 +114,10 @@
   ],
   "warp_events": [
     {
-      "x": 29,
-      "y": 6,
+      "x": 36,
+      "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_ABANDONED_SHIP_DECK",
+      "dest_map": "MAP_SEADUST_CAVE_1F",
       "dest_warp_id": "0"
     }
   ],
