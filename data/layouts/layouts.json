@@ -4425,7 +4425,7 @@
       "id": "LAYOUT_SEADUST_CAVE_B1F",
       "name": "SeadustCave_B1F_Layout",
       "width": 56,
-      "height": 22,
+      "height": 38,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SeadustCave_B1F/border.bin",
