@@ -290,14 +290,14 @@ const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
 
 const u32 gTrainerFrontPic_ReconF[] = INCBIN_U32("graphics/trainers/front_pics/recon_f.4bpp.lz");
-const u32 gTrainerPalette_ReconF[] = INCBIN_U32("graphics/trainers/palettes/recon_f.gbapal.lz");
+const u32 gTrainerPalette_ReconF[] = INCBIN_U32("graphics/trainers/front_pics/recon_f.gbapal.lz");
 
 const u32 gTrainerFrontPic_ReconM[] = INCBIN_U32("graphics/trainers/front_pics/recon_m.4bpp.lz");
-const u32 gTrainerPalette_ReconM[] = INCBIN_U32("graphics/trainers/palettes/recon_m.gbapal.lz");
+const u32 gTrainerPalette_ReconM[] = INCBIN_U32("graphics/trainers/front_pics/recon_m.gbapal.lz");
 
 const u32 gTrainerFrontPic_ReconLeader[] = INCBIN_U32("graphics/trainers/front_pics/recon_leader.4bpp.lz");
-const u32 gTrainerPalette_ReconLeader[] = INCBIN_U32("graphics/trainers/palettes/recon_leader.gbapal.lz");
+const u32 gTrainerPalette_ReconLeader[] = INCBIN_U32("graphics/trainers/front_pics/recon_leader.gbapal.lz");
 
 const u32 gTrainerFrontPic_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia.4bpp.lz");
-const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/palettes/cynthia.gbapal.lz");
+const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia.gbapal.lz");
 
