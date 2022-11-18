@@ -215,9 +215,9 @@
       "id": "LAYOUT_ROUTE106",
       "name": "Route106_Layout",
       "width": 80,
-      "height": 20,
+      "height": 83,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route106/border.bin",
       "blockdata_filepath": "data/layouts/Route106/map.bin"
     },
@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SeadustCave_B2F/border.bin",
       "blockdata_filepath": "data/layouts/SeadustCave_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE309",
+      "name": "Route309_Layout",
+      "width": 66,
+      "height": 100,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Route309/border.bin",
+      "blockdata_filepath": "data/layouts/Route309/map.bin"
     }
   ]
 }

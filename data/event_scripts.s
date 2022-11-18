@@ -1061,3 +1061,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SeadustCave_B1F/scripts.inc"
 
 	.include "data/maps/SeadustCave_B2F/scripts.inc"
+
+	.include "data/maps/Route309/scripts.inc"
