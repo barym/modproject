@@ -4447,7 +4447,7 @@
       "width": 66,
       "height": 100,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route309/border.bin",
       "blockdata_filepath": "data/layouts/Route309/map.bin"
     }
