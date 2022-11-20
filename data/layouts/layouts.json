@@ -4425,7 +4425,7 @@
       "id": "LAYOUT_SEADUST_CAVE_B1F",
       "name": "SeadustCave_B1F_Layout",
       "width": 56,
-      "height": 38,
+      "height": 34,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SeadustCave_B1F/border.bin",
@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route309/border.bin",
       "blockdata_filepath": "data/layouts/Route309/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE310",
+      "name": "Route310_Layout",
+      "width": 120,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Route310/border.bin",
+      "blockdata_filepath": "data/layouts/Route310/map.bin"
     }
   ]
 }
