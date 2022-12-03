@@ -4455,7 +4455,7 @@
       "id": "LAYOUT_ROUTE310",
       "name": "Route310_Layout",
       "width": 120,
-      "height": 50,
+      "height": 51,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Oreinos",
       "border_filepath": "data/layouts/Route310/border.bin",
