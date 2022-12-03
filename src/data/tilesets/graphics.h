@@ -1678,3 +1678,22 @@ const u16 gTilesetPalettes_Limani[][16] =
 };
 
 const u32 gTilesetTiles_Limani[] = INCBIN_U32("data/tilesets/secondary/limani/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Oreinos[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/oreinos/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Oreinos[] = INCBIN_U32("data/tilesets/secondary/oreinos/tiles.4bpp.lz");

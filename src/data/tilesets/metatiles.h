@@ -213,3 +213,6 @@ const u16 gMetatileAttributes_Kentro[] = INCBIN_U16("data/tilesets/secondary/ken
 
 const u16 gMetatiles_Limani[] = INCBIN_U16("data/tilesets/secondary/limani/metatiles.bin");
 const u16 gMetatileAttributes_Limani[] = INCBIN_U16("data/tilesets/secondary/limani/metatile_attributes.bin");
+
+const u16 gMetatiles_Oreinos[] = INCBIN_U16("data/tilesets/secondary/oreinos/metatiles.bin");
+const u16 gMetatileAttributes_Oreinos[] = INCBIN_U16("data/tilesets/secondary/oreinos/metatile_attributes.bin");

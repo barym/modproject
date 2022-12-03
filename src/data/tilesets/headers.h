@@ -847,3 +847,14 @@ const struct Tileset gTileset_Limani =
     .metatileAttributes = gMetatileAttributes_Limani,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Oreinos =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Oreinos,
+    .palettes = gTilesetPalettes_Oreinos,
+    .metatiles = gMetatiles_Oreinos,
+    .metatileAttributes = gMetatileAttributes_Oreinos,
+    .callback = NULL,
+};
