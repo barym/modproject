@@ -373,6 +373,21 @@
 #define METATILE_Mossdeep_Door              0x2A1
 #define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
 
+// gTileset_Oreinos
+#define METATILE_Oreinos_AshField                  0x218
+#define METATILE_Oreinos_AshGrass                  0x20A
+#define METATILE_Oreinos_BrownCaveEntrance_Bottom  0x261
+#define METATILE_Oreinos_BrownCaveEntrance_Top     0x259
+#define METATILE_Oreinos_BrownCaveIndent           0x208
+#define METATILE_Oreinos_BrownCaveOpen             0x210
+#define METATILE_Oreinos_BrownRockWall             0x265
+#define METATILE_Oreinos_Door_DarkRoof             0x2F7
+#define METATILE_Oreinos_Door_LightRoof            0x2A5
+#define METATILE_Oreinos_NormalGrass               0x212
+#define METATILE_Oreinos_RedCaveEntrance_Bottom    0x34F
+#define METATILE_Oreinos_RedCaveEntrance_Top       0x347
+#define METATILE_Oreinos_RedRockWall               0x269
+
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A
 #define METATILE_Pacifidlog_FloatingLogs_HorizontalLeft        0x250
