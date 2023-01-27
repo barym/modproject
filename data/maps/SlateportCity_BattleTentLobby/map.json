@@ -85,14 +85,14 @@
       "x": 6,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
+      "dest_map": "MAP_LIMANI_CITY",
       "dest_warp_id": "3"
     },
     {
       "x": 7,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
+      "dest_map": "MAP_LIMANI_CITY",
       "dest_warp_id": "3"
     }
   ],

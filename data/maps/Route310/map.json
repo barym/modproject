@@ -63,42 +63,42 @@
     },
     {
       "type": "weather",
-      "x": 109,
+      "x": 110,
       "y": 29,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 108,
+      "x": 109,
       "y": 30,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 108,
+      "x": 109,
       "y": 31,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 107,
+      "x": 108,
       "y": 32,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 107,
+      "x": 108,
       "y": 33,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 107,
+      "x": 108,
       "y": 34,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
