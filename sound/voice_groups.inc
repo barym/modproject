@@ -273,4 +273,5 @@
 .include "sound/voicegroups/voicegroup271.inc"
 .include "sound/voicegroups/voicegroup272.inc"
 .include "sound/voicegroups/voicegroup273.inc"
-@.include "sound/voicegroups/voicegroup300.inc" mus_lusamine
+.include "sound/voicegroups/voicegroup300.inc"
+.include "sound/voicegroups/voicegroup301.inc"

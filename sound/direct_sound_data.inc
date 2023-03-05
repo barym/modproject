@@ -3469,3 +3469,91 @@ DirectSoundWaveData_hg_hoohclap::
 	.align 2
 DirectSoundWaveData_hg_choirc5::
 	.incbin "sound/direct_sound_samples/hg_choirc5.bin"
+
+	.align 2
+DirectSoundWaveData_mm_acoustic_guitar_high::
+	.incbin "sound/direct_sound_samples/mm/Acoustic_Guitar_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_acoustic_guitar_low::
+	.incbin "sound/direct_sound_samples/mm/Acoustic_Guitar_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_bassoon_high::
+	.incbin "sound/direct_sound_samples/mm/Bassoon_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_bassoon_low::
+	.incbin "sound/direct_sound_samples/mm/Bassoon_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_dulcimer_high::
+	.incbin "sound/direct_sound_samples/mm/Dulcimer_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_dulcimer_low::
+	.incbin "sound/direct_sound_samples/mm/Dulcimer_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_elves::
+	.incbin "sound/direct_sound_samples/mm/Elves.bin"
+
+	.align 2
+DirectSoundWaveData_mm_female_choir_high::
+	.incbin "sound/direct_sound_samples/mm/Female_Choir_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_female_choir_low::
+	.incbin "sound/direct_sound_samples/mm/Female_Choir_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_harmonica::
+	.incbin "sound/direct_sound_samples/mm/Harmonica.bin"
+
+	.align 2
+DirectSoundWaveData_mm_male_choir_high::
+	.incbin "sound/direct_sound_samples/mm/Male_Choir_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_male_choir_low::
+	.incbin "sound/direct_sound_samples/mm/Male_Choir_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_oboe::
+	.incbin "sound/direct_sound_samples/mm/Oboe.bin"
+
+	.align 2
+DirectSoundWaveData_mm_ocarina::
+	.incbin "sound/direct_sound_samples/mm/Ocarina.bin"
+
+	.align 2
+DirectSoundWaveData_mm_piccolo::
+	.incbin "sound/direct_sound_samples/mm/Piccolo.bin"
+
+	.align 2
+DirectSoundWaveData_mm_strings_high::
+	.incbin "sound/direct_sound_samples/mm/Strings_High.bin"
+
+	.align 2
+DirectSoundWaveData_mm_strings_low::
+	.incbin "sound/direct_sound_samples/mm/Strings_Low.bin"
+
+	.align 2
+DirectSoundWaveData_mm_strings_mid::
+	.incbin "sound/direct_sound_samples/mm/Strings_Mid.bin"
+
+	.align 2
+DirectSoundWaveData_mm_tambourine_1::
+	.incbin "sound/direct_sound_samples/mm/Tambourine_1.bin"
+
+	.align 2
+DirectSoundWaveData_mm_tambourine_2::
+	.incbin "sound/direct_sound_samples/mm/Tambourine_2.bin"
+
+	.align 2
+DirectSoundWaveData_mm_tambourine_3::
+	.incbin "sound/direct_sound_samples/mm/Tambourine_3.bin"
+
+	.align 2
+DirectSoundWaveData_mm_wind::
+	.incbin "sound/direct_sound_samples/mm/Wind.bin"

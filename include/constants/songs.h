@@ -915,7 +915,7 @@
 #define MUS_HG_WIN_MINIGAME               976 // Cleared Wobbuffet Pop!
 
 //ADDITION
-#define MUS_LUSAMINE                977
+#define MUS_MM_STONE_TOWER                977 // Stone Tower Temple
 
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
