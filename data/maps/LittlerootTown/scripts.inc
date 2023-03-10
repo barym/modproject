@@ -247,7 +247,21 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	end
 
 LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LittlerootTown_EventScript_RideUp
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_EventScript_RideDown
+	end
+
+LittlerootTown_EventScript_RideUp::
+	setvar VAR_0x8004, FALSE  @ Going up
+	special CableCar
+	end
+
+LittlerootTown_EventScript_RideDown::
+	setvar VAR_0x8004, TRUE  @ Going down
+	special CableCar
 	end
 
 LittlerootTown_EventScript_Boy::

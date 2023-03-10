@@ -93,7 +93,7 @@ static void DrawNextGroundSegmentGoingDown(void);
 static const struct BgTemplate sBgTemplates[4] = {
     {
         .bg = 0,
-        .charBaseIndex = 0,
+        .charBaseIndex = 0,cablecarbg_gfx
         .mapBaseIndex = 28,
         .screenSize = 0,
         .paletteMode = 0,
@@ -130,8 +130,10 @@ static const struct BgTemplate sBgTemplates[4] = {
 };
 
 static const u8 sGround_Tilemap[] = INCBIN_U8("graphics/cable_car/ground.bin.lz");
-static const u8 sTrees_Tilemap[] = INCBIN_U8("graphics/cable_car/trees.bin.lz");
-static const u8 sBgMountains_Tilemap[] = INCBIN_U8("graphics/cable_car/bg_mountains.bin.lz");
+//static const u8 sTrees_Tilemap[] = INCBIN_U8("graphics/cable_car/trees.bin.lz");
+static const u8 sTrees_Tilemap[] = INCBIN_U8("graphics/cable_car/mountains_bg.bin.lz");
+//static const u8 sBgMountains_Tilemap[] = INCBIN_U8("graphics/cable_car/bg_mountains.bin.lz");
+static const u8 sBgMountains_Tilemap[] = INCBIN_U8("graphics/cable_car/sea_bg.bin.lz");
 
 static const u16 sPylonHook_TilemapEntries[] = {
     0x3000,
@@ -849,7 +851,7 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sYPos = 99;
             // Init weather
             sCableCar->weather = WEATHER_VOLCANIC_ASH;
-            sCableCar->weatherDelay = 350;
+            sCableCar->weatherDelay = 0; //350;
             SetCurrentAndNextWeatherNoDelay(WEATHER_SUNNY);
             break;
         case TRUE:
@@ -876,8 +878,8 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sXPos = 128;
             gSprites[spriteId].sYPos = 65;
             // Init weather
-            sCableCar->weather = WEATHER_SUNNY;
-            sCableCar->weatherDelay = 265;
+            sCableCar->weather = WEATHER_VOLCANIC_ASH; //WEATHER_SUNNY;
+            sCableCar->weatherDelay = 0; //265;
             SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
             break;
     }
