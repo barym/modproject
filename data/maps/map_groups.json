@@ -435,7 +435,8 @@
     "MeteorFalls_StevensCave",
     "SeadustCave_1F",
     "SeadustCave_B1F",
-    "SeadustCave_B2F"
+    "SeadustCave_B2F",
+    "MtKamena"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

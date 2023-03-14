@@ -4414,8 +4414,8 @@
     {
       "id": "LAYOUT_SEADUST_CAVE_1F",
       "name": "SeadustCave_1F_Layout",
-      "width": 20,
-      "height": 15,
+      "width": 18,
+      "height": 12,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SeadustCave_1F/border.bin",
@@ -4460,6 +4460,16 @@
       "secondary_tileset": "gTileset_Oreinos",
       "border_filepath": "data/layouts/Route310/border.bin",
       "blockdata_filepath": "data/layouts/Route310/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_KAMENA",
+      "name": "MtKamena_Layout",
+      "width": 90,
+      "height": 77,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/MtKamena/border.bin",
+      "blockdata_filepath": "data/layouts/MtKamena/map.bin"
     }
   ]
 }

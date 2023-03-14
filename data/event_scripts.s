@@ -1065,3 +1065,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route309/scripts.inc"
 
 	.include "data/maps/Route310/scripts.inc"
+
+	.include "data/maps/MtKamena/scripts.inc"

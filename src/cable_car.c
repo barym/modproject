@@ -93,7 +93,7 @@ static void DrawNextGroundSegmentGoingDown(void);
 static const struct BgTemplate sBgTemplates[4] = {
     {
         .bg = 0,
-        .charBaseIndex = 0,cablecarbg_gfx
+        .charBaseIndex = 0,
         .mapBaseIndex = 28,
         .screenSize = 0,
         .paletteMode = 0,
