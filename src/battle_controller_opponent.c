@@ -1181,6 +1181,7 @@ static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit)
 
     gSprites[gBattlerSpriteIds[battlerId]].oam.paletteNum = battlerId;
 
+    // For trainer sprite anim
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerId]], gBattleMonForms[battlerId]);
 
     gSprites[gBattlerSpriteIds[battlerId]].invisible = TRUE;
