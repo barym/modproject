@@ -136,7 +136,7 @@ static const u16 sGround_Tilemap[] = INCBIN_U16("graphics/cable_car/ground.bin.l
 static const u16 sTrees_Tilemap[] = INCBIN_U8("graphics/cable_car/mountains_bg.bin.lz");
 //static const u8 sBgMountains_Tilemap[] = INCBIN_U16("graphics/cable_car/bg_mountains.bin.lz");
 static const u8 sBgMountains_Tilemap[] = INCBIN_U8("graphics/cable_car/sea_bg.bin.lz");
-static const u16 sPylonTop_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_top.bin");
+static const u16 sPylonTop_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_top.bin.lz");
 static const u16 sPylonPole_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_pole.bin.lz");
 
 static const struct CompressedSpriteSheet sSpriteSheets[] = {
@@ -840,7 +840,7 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sYPos = 99;
             // Init weather
             sCableCar->weather = WEATHER_VOLCANIC_ASH;
-            sCableCar->weatherDelay = 0; //350;
+            sCableCar->weatherDelay = 350;
             SetCurrentAndNextWeatherNoDelay(WEATHER_SUNNY);
             break;
         case TRUE:
@@ -867,8 +867,8 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sXPos = 128;
             gSprites[spriteId].sYPos = 65;
             // Init weather
-            sCableCar->weather = WEATHER_VOLCANIC_ASH; //WEATHER_SUNNY;
-            sCableCar->weatherDelay = 0; //265;
+            sCableCar->weather = WEATHER_SUNNY;
+            sCableCar->weatherDelay = 265;
             SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
             break;
     }
@@ -1060,4 +1060,3 @@ static void InitGroundTilemapData(bool8 goingDown)
 
     sCableCar->groundTimer = 0;
 }
-
