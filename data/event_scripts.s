@@ -1067,3 +1067,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route310/scripts.inc"
 
 	.include "data/maps/MtKamena/scripts.inc"
+
+	.include "data/maps/AtmosCavern_1F/scripts.inc"
+
+	.include "data/maps/AtmosCavern_B1F/scripts.inc"
+
+	.include "data/maps/AtmosCavern_B2F/scripts.inc"
+
+	.include "data/maps/AtmosCavern_2F/scripts.inc"

@@ -406,6 +406,10 @@
 #define MAP_SEADUST_CAVE_B1F                         (109 | (24 << 8))
 #define MAP_SEADUST_CAVE_B2F                         (110 | (24 << 8))
 #define MAP_MT_KAMENA                                (111 | (24 << 8))
+#define MAP_ATMOS_CAVERN_1F                          (112 | (24 << 8))
+#define MAP_ATMOS_CAVERN_B1F                         (113 | (24 << 8))
+#define MAP_ATMOS_CAVERN_2F                          (114 | (24 << 8))
+#define MAP_ATMOS_CAVERN_B2F                         (115 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

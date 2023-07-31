@@ -44,6 +44,7 @@ static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
 static void TilesetAnim_BattleDome(u16);
 static void TilesetAnim_Kentro(u16);
+static void TilesetAnim_AtmosCavern(u16);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -75,6 +76,9 @@ static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
 static void QueueAnimTiles_Kentro_Fountain(u16);
+static void QueueAnimTiles_AtmosCavern_Steam(u16);
+static void QueueAnimTiles_AtmosCavern_Waterfall(u16);
+static void QueueAnimTiles_AtmosCavern_Lava(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -555,6 +559,30 @@ const u16 *const gTilesetAnims_Kentro_Fountain[] = {
     gTilesetAnims_Kentro_Fountain_Frame1
 };
 
+const u16 gTilesetAnims_AtmosCavern_Steam_Frame0[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/steam/0.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Steam_Frame1[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/steam/1.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Steam_Frame2[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/steam/2.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Steam_Frame3[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/steam/3.4bpp");
+
+const u16 *const gTilesetAnims_AtmosCavern_Steam[] = {
+    gTilesetAnims_AtmosCavern_Steam_Frame0,
+    gTilesetAnims_AtmosCavern_Steam_Frame1,
+    gTilesetAnims_AtmosCavern_Steam_Frame2,
+    gTilesetAnims_AtmosCavern_Steam_Frame3
+};
+
+const u16 gTilesetAnims_AtmosCavern_Waterfall_Frame0[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/waterfall/0.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Waterfall_Frame1[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/waterfall/1.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Waterfall_Frame2[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/waterfall/2.4bpp");
+const u16 gTilesetAnims_AtmosCavern_Waterfall_Frame3[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/waterfall/3.4bpp");
+
+const u16 *const gTilesetAnims_AtmosCavern_Waterfall[] = {
+    gTilesetAnims_AtmosCavern_Waterfall_Frame0,
+    gTilesetAnims_AtmosCavern_Waterfall_Frame1,
+    gTilesetAnims_AtmosCavern_Waterfall_Frame2,
+    gTilesetAnims_AtmosCavern_Waterfall_Frame3
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -852,12 +880,27 @@ void InitTilesetAnim_Kentro(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_Kentro;
 }
 
+void InitTilesetAnim_AtmosCavern(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_AtmosCavern;
+}
+
+static void TilesetAnim_AtmosCavern(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_AtmosCavern_Steam(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_AtmosCavern_Lava(timer / 16);
+    if (timer % 16 == 3)
+        QueueAnimTiles_AtmosCavern_Waterfall(timer / 16);
+}
+
 static void TilesetAnim_Kentro(u16 timer)
 {
     if (timer % 8 == 0)
-    {
         QueueAnimTiles_Kentro_Fountain(timer / 8);
-    }
 }
 
 static void TilesetAnim_Rustboro(u16 timer)
@@ -1195,6 +1238,27 @@ static void QueueAnimTiles_Kentro_Fountain(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Kentro_Fountain);
     AppendTilesetAnimToBuffer(gTilesetAnims_Kentro_Fountain[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 448)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_AtmosCavern_Steam(u16 timer)
+{
+    u8 i = timer % ARRAY_COUNT(gTilesetAnims_AtmosCavern_Steam);
+    AppendTilesetAnimToBuffer(gTilesetAnims_AtmosCavern_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 240)), 4 * TILE_SIZE_4BPP);
+
+    i = (timer + 2) % (int)ARRAY_COUNT(gTilesetAnims_AtmosCavern_Steam);
+    AppendTilesetAnimToBuffer(gTilesetAnims_AtmosCavern_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 252)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_AtmosCavern_Waterfall(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_AtmosCavern_Waterfall);
+    AppendTilesetAnimToBuffer(gTilesetAnims_AtmosCavern_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 224)), 6 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_AtmosCavern_Lava(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Cave_Lava);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Cave_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 208)), 4 * TILE_SIZE_4BPP);
 }
 
 static void BlendAnimPalette_BattleDome_FloorLights(u16 timer)

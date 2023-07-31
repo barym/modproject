@@ -4470,6 +4470,46 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/MtKamena/border.bin",
       "blockdata_filepath": "data/layouts/MtKamena/map.bin"
+    },
+    {
+      "id": "LAYOUT_ATMOS_CAVERN_1F",
+      "name": "AtmosCavern_1F_Layout",
+      "width": 45,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AtmosCavern",
+      "border_filepath": "data/layouts/AtmosCavern_1F/border.bin",
+      "blockdata_filepath": "data/layouts/AtmosCavern_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ATMOS_CAVERN_B1F",
+      "name": "AtmosCavern_B1F_Layout",
+      "width": 64,
+      "height": 19,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AtmosCavern",
+      "border_filepath": "data/layouts/AtmosCavern_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/AtmosCavern_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ATMOS_CAVERN_2F",
+      "name": "AtmosCavern_2F_Layout",
+      "width": 34,
+      "height": 19,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AtmosCavern",
+      "border_filepath": "data/layouts/AtmosCavern_2F/border.bin",
+      "blockdata_filepath": "data/layouts/AtmosCavern_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ATMOS_CAVERN_B2F",
+      "name": "AtmosCavern_B2F_Layout",
+      "width": 29,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AtmosCavern",
+      "border_filepath": "data/layouts/AtmosCavern_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/AtmosCavern_B2F/map.bin"
     }
   ]
 }

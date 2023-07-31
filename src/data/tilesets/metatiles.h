@@ -216,3 +216,6 @@ const u16 gMetatileAttributes_Limani[] = INCBIN_U16("data/tilesets/secondary/lim
 
 const u16 gMetatiles_Oreinos[] = INCBIN_U16("data/tilesets/secondary/oreinos/metatiles.bin");
 const u16 gMetatileAttributes_Oreinos[] = INCBIN_U16("data/tilesets/secondary/oreinos/metatile_attributes.bin");
+
+const u16 gMetatiles_AtmosCavern[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/metatiles.bin");
+const u16 gMetatileAttributes_AtmosCavern[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/metatile_attributes.bin");

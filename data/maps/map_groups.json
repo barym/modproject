@@ -436,7 +436,11 @@
     "SeadustCave_1F",
     "SeadustCave_B1F",
     "SeadustCave_B2F",
-    "MtKamena"
+    "MtKamena",
+    "AtmosCavern_1F",
+    "AtmosCavern_B1F",
+    "AtmosCavern_2F",
+    "AtmosCavern_B2F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

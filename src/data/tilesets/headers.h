@@ -858,3 +858,14 @@ const struct Tileset gTileset_Oreinos =
     .metatileAttributes = gMetatileAttributes_Oreinos,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_AtmosCavern =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_AtmosCavern,
+    .palettes = gTilesetPalettes_AtmosCavern,
+    .metatiles = gMetatiles_AtmosCavern,
+    .metatileAttributes = gMetatileAttributes_AtmosCavern,
+    .callback = InitTilesetAnim_AtmosCavern,
+};
