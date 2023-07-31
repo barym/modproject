@@ -95,6 +95,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_M] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LEADER_ALINE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_LEADER] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CYNTHIA] = {.size = 8, .y_offset = 2},
 };
@@ -298,5 +299,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RECON_F, gTrainerPalette_ReconF),
     TRAINER_PAL(RECON_M, gTrainerPalette_ReconM),
     TRAINER_PAL(RECON_LEADER, gTrainerPalette_ReconLeader),
+    TRAINER_PAL(LEADER_ALINE, gTrainerPalette_LeaderAline),
     TRAINER_PAL(CYNTHIA, gTrainerPalette_Cynthia),
 };

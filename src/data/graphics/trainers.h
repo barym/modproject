@@ -298,6 +298,9 @@ const u32 gTrainerPalette_ReconM[] = INCBIN_U32("graphics/trainers/front_pics/re
 const u32 gTrainerFrontPic_ReconLeader[] = INCBIN_U32("graphics/trainers/front_pics/recon_leader.4bpp.lz");
 const u32 gTrainerPalette_ReconLeader[] = INCBIN_U32("graphics/trainers/front_pics/recon_leader.gbapal.lz");
 
+const u32 gTrainerFrontPic_LeaderAline[] = INCBIN_U32("graphics/trainers/front_pics/leader_aline.4bpp.lz");
+const u32 gTrainerPalette_LeaderAline[] = INCBIN_U32("graphics/trainers/front_pics/leader_aline.gbapal.lz");
+
 const u32 gTrainerFrontPic_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia.4bpp.lz");
 const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia.gbapal.lz");
 
