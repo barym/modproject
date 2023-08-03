@@ -3821,8 +3821,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEADER_ALINE,
-        .trainerName = _("ALINE"),
+        .trainerPic = TRAINER_PIC_LEADER_JACKFORD,
+        .trainerName = _("JACKFORD"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -4001,7 +4001,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_RIVALE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("MAY"),
         .items = {},
         .doubleBattle = FALSE,

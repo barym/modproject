@@ -601,6 +601,12 @@ static const union AnimCmd *const sAnims_ReconLeader[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_LeaderJackford[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+};
+
 static const union AnimCmd *const sAnims_LeaderAline[] ={
     sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
@@ -727,6 +733,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RECON_F] = sAnims_ReconF,
     [TRAINER_PIC_RECON_M] = sAnims_ReconM,
     [TRAINER_PIC_RECON_LEADER] = sAnims_ReconLeader,
+    [TRAINER_PIC_LEADER_JACKFORD] = sAnims_LeaderJackford,
     [TRAINER_PIC_LEADER_ALINE] = sAnims_LeaderAline,
     [TRAINER_PIC_CYNTHIA] = sAnims_Cynthia,
 };

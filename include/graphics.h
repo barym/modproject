@@ -2970,6 +2970,8 @@ extern const u32 gTrainerFrontPic_ReconM[];
 extern const u32 gTrainerPalette_ReconM[];
 extern const u32 gTrainerFrontPic_ReconLeader[];
 extern const u32 gTrainerPalette_ReconLeader[];
+extern const u32 gTrainerFrontPic_LeaderJackford[];
+extern const u32 gTrainerPalette_LeaderJackford[];
 extern const u32 gTrainerFrontPic_LeaderAline[];
 extern const u32 gTrainerPalette_LeaderAline[];
 extern const u32 gTrainerFrontPic_Cynthia[];

@@ -96,6 +96,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RECON_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_M] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_LEADER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LEADER_JACKFORD] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_LEADER_ALINE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CYNTHIA] = {.size = 8, .y_offset = 2},
 };
@@ -200,6 +201,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RECON_F, gTrainerFrontPic_ReconF, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(RECON_M, gTrainerFrontPic_ReconM, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(RECON_LEADER, gTrainerFrontPic_ReconLeader, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(LEADER_JACKFORD, gTrainerFrontPic_LeaderJackford, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(LEADER_ALINE, gTrainerFrontPic_LeaderAline, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(CYNTHIA, gTrainerFrontPic_Cynthia, TRAINER_PIC_SIZE * 3),    
 };
@@ -304,6 +306,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RECON_F, gTrainerPalette_ReconF),
     TRAINER_PAL(RECON_M, gTrainerPalette_ReconM),
     TRAINER_PAL(RECON_LEADER, gTrainerPalette_ReconLeader),
+    TRAINER_PAL(LEADER_JACKFORD, gTrainerPalette_LeaderJackford),
     TRAINER_PAL(LEADER_ALINE, gTrainerPalette_LeaderAline),
     TRAINER_PAL(CYNTHIA, gTrainerPalette_Cynthia),
 };

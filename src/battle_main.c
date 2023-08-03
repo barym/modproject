@@ -4974,9 +4974,10 @@ static void HandleEndTurn_BattleWon(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_ELITE_FOUR:
-        case TRAINER_CLASS_CHAMPION:
             PlayBGM(MUS_VICTORY_LEAGUE);
             break;
+        case TRAINER_CLASS_CHAMPION:
+            PlayBGM(MUS_DP_VICTORY_CHAMPION);
         case TRAINER_CLASS_TEAM_AQUA:
         case TRAINER_CLASS_TEAM_MAGMA:
         case TRAINER_CLASS_AQUA_ADMIN:
