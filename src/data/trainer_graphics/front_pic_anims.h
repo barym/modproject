@@ -15,289 +15,433 @@ static const union AnimCmd *const sAnims_EXAMPLE[] =
 
 static const union AnimCmd *const sAnims_Hiker[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AquaGruntM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokemonBreederF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_CoolTrainerM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_BirdKeeper[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Collector[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AquaGruntF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SwimmerM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_MagmaGruntM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ExpertM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AquaAdminM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_BlackBelt[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AquaAdminF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AquaLeaderArchie[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_HexManiac[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_AromaLady[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RuinManiac[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Interviewer[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_TuberF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_TuberM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_CoolTrainerF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Lady[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Beauty[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RichBoy[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ExpertF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Pokemaniac[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_MagmaGruntF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Guitarist[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Kindler[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Camper[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Picnicker[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_BugManiac[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokemonBreederM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PsychicM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PsychicF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Gentleman[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_EliteFourSidney[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_EliteFourPhoebe[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_EliteFourGlacia[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_EliteFourDrake[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderRoxanne[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderBrawly[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderWattson[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderFlannery[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderNorman[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderWinona[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderTateAndLiza[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_LeaderJuan[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SchoolKidM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SchoolKidF[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SrAndJr[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokefanM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokefanF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Youngster[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ChampionWallace[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Fisherman[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_CyclingTriathleteM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_CyclingTriathleteF[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RunningTriathleteM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RunningTriathleteF[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SwimmingTriathleteM[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SwimmingTriathleteF[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_DragonTamer[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_NinjaBoy[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_BattleGirl[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ParasolLady[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SwimmerF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Twins[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Sailor[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_MagmaAdmin[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Wally[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Brendan[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
@@ -320,98 +464,146 @@ static const union AnimCmd *const sAnims_May[] ={
 
 static const union AnimCmd *const sAnims_BugCatcher[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokemonRangerM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PokemonRangerF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_MagmaLeaderMaxie[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Lass[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_YoungCouple[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_OldCouple[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SisAndBro[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Steven[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_SalonMaidenAnabel[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_DomeAceTucker[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PalaceMavenSpenser[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ArenaTycoonGreta[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_FactoryHeadNoland[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PikeQueenLucy[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_PyramidKingBrandon[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Red[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_Leaf[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RubySapphireBrendan[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_RubySapphireMay[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 //ADDITIONS
 static const union AnimCmd *const sAnims_ReconF[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ReconM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
 static const union AnimCmd *const sAnims_ReconLeader[] ={
     sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
 };
 
-static const union AnimCmd *const sAnims_LeaderAline[] = {
+static const union AnimCmd *const sAnims_LeaderAline[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GeneralFrame0,
     sAnim_GeneralFrame0,
 };
 
@@ -435,6 +627,7 @@ static const union AnimCmd *const sAnims_Cynthia[] ={
     sAnim_Cynthia_1,
     sAnim_GeneralFrame0,
 };
+
 
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
@@ -533,7 +726,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
     [TRAINER_PIC_RECON_F] = sAnims_ReconF,
     [TRAINER_PIC_RECON_M] = sAnims_ReconM,
-    [TRAINER_PIC_LEADER_ALINE] = sAnims_LeaderAline,
     [TRAINER_PIC_RECON_LEADER] = sAnims_ReconLeader,
+    [TRAINER_PIC_LEADER_ALINE] = sAnims_LeaderAline,
     [TRAINER_PIC_CYNTHIA] = sAnims_Cynthia,
 };

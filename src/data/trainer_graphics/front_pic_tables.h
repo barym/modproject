@@ -95,8 +95,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_M] = {.size = 8, .y_offset = 1},
-    [TRAINER_PIC_LEADER_ALINE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RECON_LEADER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LEADER_ALINE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CYNTHIA] = {.size = 8, .y_offset = 2},
 };
 
@@ -176,7 +176,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(MAGMA_ADMIN, gTrainerFrontPic_MagmaAdmin, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(WALLY, gTrainerFrontPic_Wally, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(BRENDAN, gTrainerFrontPic_Brendan, TRAINER_PIC_SIZE),
-    TRAINER_SPRITE(MAY, gTrainerFrontPic_May, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(MAY, gTrainerFrontPic_May, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(BUG_CATCHER, gTrainerFrontPic_BugCatcher, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(POKEMON_RANGER_M, gTrainerFrontPic_PokemonRangerM, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(POKEMON_RANGER_F, gTrainerFrontPic_PokemonRangerF, TRAINER_PIC_SIZE),
