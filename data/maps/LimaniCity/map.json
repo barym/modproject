@@ -2,7 +2,7 @@
   "id": "MAP_LIMANI_CITY",
   "name": "LimaniCity",
   "layout": "LAYOUT_LIMANI_CITY",
-  "music": "MUS_MM_STONE_TOWER",
+  "music": "MUS_SLATEPORT",
   "region_map_section": "MAPSEC_LIMANI_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

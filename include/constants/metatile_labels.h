@@ -451,7 +451,7 @@
 #define METATILE_PokemonCenter_Floor_ShadowTop           0x21E
 #define METATILE_PokemonCenter_Floor_ShadowTop_Alt       0x2DC
 
-// gTileset_RS
+// gTileset_RSMossdeepGym
 #define METATILE_RSMossdeepGym_RedArrow_Down   0x205
 #define METATILE_RSMossdeepGym_RedArrow_Left   0x20C
 #define METATILE_RSMossdeepGym_RedArrow_Right  0x204
@@ -464,23 +464,6 @@
 #define METATILE_Rustboro_Door_Tan   0x22F
 
 // gTileset_SecretBase
-#define METATILE_SecretBase_AttractMat_BottomLeft       0x313
-#define METATILE_SecretBase_AttractMat_BottomMid        0x314
-#define METATILE_SecretBase_AttractMat_BottomRight      0x315
-#define METATILE_SecretBase_AttractMat_Center           0x30C
-#define METATILE_SecretBase_AttractMat_MidLeft          0x30B
-#define METATILE_SecretBase_AttractMat_MidRight         0x30D
-#define METATILE_SecretBase_AttractMat_TopLeft          0x303
-#define METATILE_SecretBase_AttractMat_TopMid           0x304
-#define METATILE_SecretBase_AttractMat_TopRight         0x305
-#define METATILE_SecretBase_BallPoster                  0x330
-#define METATILE_SecretBase_BigPlant_BaseLeft1          0x2EC
-#define METATILE_SecretBase_BigPlant_BaseLeft2          0x2EE
-#define METATILE_SecretBase_BigPlant_BaseRight1         0x2ED
-#define METATILE_SecretBase_BigPlant_BaseRight2         0x2EF
-#define METATILE_SecretBase_BigPlant_TopLeft            0x2E4
-#define METATILE_SecretBase_BigPlant_TopRight           0x2E6
-#define METATILE_SecretBase_BlueBalloon                 0x33C
 #define METATILE_SecretBase_AttractMat_BottomLeft       0x313
 #define METATILE_SecretBase_AttractMat_BottomMid        0x314
 #define METATILE_SecretBase_AttractMat_BottomRight      0x315
