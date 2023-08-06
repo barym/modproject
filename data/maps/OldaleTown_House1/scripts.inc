@@ -13,3 +13,7 @@ OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
 	.string "of your POKéMON.\p"
 	.string "It could give you an advantage.$"
 
+OldaleTown_House1_EventScript_Rick::
+	trainerbattle_single TRAINER_RICK, Route102_Text_RickIntro, Route102_Text_RickDefeated
+	msgbox Route102_Text_RickPostBattle, MSGBOX_AUTOCLOSE
+	end
