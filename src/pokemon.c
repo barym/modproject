@@ -6394,7 +6394,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_LEADER:
             return MUS_HG_VS_GYM_LEADER_KANTO;
         case TRAINER_CLASS_CHAMPION:
-            return MUS_DP_VS_CHAMPION;
+            return MUS_VS_CHAMPION;
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
@@ -6415,8 +6415,10 @@ u16 GetBattleBGM(void)
             return MUS_HG_VS_RIVAL;
         case TRAINER_CLASS_RECON:
             return MUS_HG_VS_RIVAL;
-        case TRAINER_CLASS_RIVALE:
+        case TRAINER_CLASS_MAY:
             return MUS_HG_VS_RIVAL;
+        case TRAINER_CLASS_CYNTHIA:
+            return MUS_DP_VS_CHAMPION;
         default:
             return MUS_VS_TRAINER;
         }

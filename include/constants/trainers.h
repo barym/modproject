@@ -360,7 +360,8 @@
 
 #define TRAINER_CLASS_RECON          0x42
 #define TRAINER_CLASS_RECON_LEADER   0x43
-#define TRAINER_CLASS_RIVALE         0x44
+#define TRAINER_CLASS_MAY            0x44
+#define TRAINER_CLASS_CYNTHIA        0x45
 
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
