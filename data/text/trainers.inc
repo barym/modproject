@@ -4779,3 +4779,16 @@ Route134_Text_HudsonPostBattle:
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+
+Route310_Text_CraigIntro:
+	.string "Because of the volcanic ash\n"
+	.string "you can find rare POKéMON here!$"
+
+Route310_Text_CraigDefeat:
+	.string "Ayieeeeh!\n"
+	.string "Looks like even they couldn't help me!$"
+
+Route310_Text_CraigPostBattle:
+	.string "This route is a goldmine\n"
+	.string "for collectors like me!$"
