@@ -63,10 +63,29 @@ Route310_EventScript_Grunt2::
 	end
 
 Route310_EventScript_Craig::
-	trainerbattle_single TRAINER_ALLEN, Route310_Text_CraigIntro, Route310_Text_CraigDefeat
+	trainerbattle_single TRAINER_JAYLEN, Route310_Text_CraigIntro, Route310_Text_CraigDefeat
 	msgbox Route310_Text_CraigPostBattle, MSGBOX_NPC
 	end
 
+Route310_EventScript_Alex::
+	trainerbattle_single TRAINER_JAYLEN, Route310_Text_AlexIntro, Route310_Text_AlexDefeat
+	msgbox Route310_Text_AlexPostBattle, MSGBOX_NPC
+	end
+
+Route310_EventScript_Jaiden::
+	trainerbattle_single TRAINER_JAYLEN, Route310_Text_JaidenIntro, Route310_Text_JaidenDefeat
+	msgbox Route310_Text_JaidenPostBattle, MSGBOX_NPC
+	end
+
+Route310_EventScript_Antonio::
+	trainerbattle_single TRAINER_JAYLEN, Route310_Text_AntonioIntro, Route310_Text_AntonioDefeat
+	msgbox Route310_Text_AntonioPostBattle, MSGBOX_NPC
+	end
+
+Route310_EventScript_Marissa::
+	trainerbattle_single TRAINER_JAYLEN, Route310_Text_MarissaIntro, Route310_Text_MarissaDefeat
+	msgbox Route310_Text_MarissaPostBattle, MSGBOX_NPC
+	end
 
 Route310_Text_AshCanBeCollected:
 	.string "I heard you can collect the volcanic ash\n"

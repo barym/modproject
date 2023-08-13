@@ -4792,3 +4792,51 @@ Route310_Text_CraigDefeat:
 Route310_Text_CraigPostBattle:
 	.string "This route is a goldmine\n"
 	.string "for collectors like me!$"
+
+Route310_Text_AlexIntro:
+	.string "The hot springs fuel this river!\p"
+	.string "I will catch the rarest POKéMON\n"
+	.string "so I can brag to my friends.$"
+
+Route310_Text_AlexDefeat:
+	.string "Argh... I need to catch more...$"
+
+Route310_Text_AlexPostBattle:
+	.string "Not even a nibble?!$"
+
+Route310_Text_JaidenIntro:
+	.string "Hayiahh!\n"
+	.string "Hold it! Let's fight!$"
+
+Route310_Text_JaidenDefeat:
+	.string "Hayiahh! I'll get ya!\n"
+	.string "Oh, it's over?$"
+
+Route310_Text_JaidenPostBattle:
+	.string "I'm one with the ash!$"
+
+Route310_Text_AntonioIntro:
+	.string "Ouch!\n"
+	.string "Don't touch the torches!$"
+
+Route310_Text_AntonioDefeat:
+	.string "Ouch! Ouch!\n"
+	.string "Now I've burned myself the second time!$"
+
+Route310_Text_AntonioPostBattle:
+	.string "Handling these isn't as easy as you may\n"
+	.string "think it is!\p"
+	.string "Ouch!$"
+
+Route310_Text_MarissaIntro:
+	.string "The parasol protects me from the\n
+	.string "volcanic ash.\l"
+	.string "Why don't you have one?$"
+
+Route310_Text_MarissaDefeat:
+	.string "Ahh! The parasol couldn't\n"
+	.string "protect me from you...$"
+
+Route310_Text_MarissaPostBattle:
+	.string "Seeing the ash fall down...\n"
+	.string "It's quite mesmerizing, I must say.$"
