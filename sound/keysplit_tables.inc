@@ -8191,3 +8191,41 @@
 	.byte 15 @ 125
 	.byte 15 @ 126
 	.byte 15 @ 127
+
+.set KeySplitTable107, . - 0	@ 0x08AD4E20
+	.byte	1
+	.byte	60
+	.byte	0
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	15
+	.byte	0
+	.byte	1
+	.byte	60
+	.byte	0
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	15
+	.byte	0
+	.byte	10
+	.byte	60
+	.byte	0
+	.byte	0
+	.byte	1
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	15
+	.byte	0

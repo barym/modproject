@@ -2,7 +2,7 @@
   "id": "MAP_LIMANI_CITY",
   "name": "LimaniCity",
   "layout": "LAYOUT_LIMANI_CITY",
-  "music": "MUS_SLATEPORT",
+  "music": "MUS_SA2_FINAL_BOSS",
   "region_map_section": "MAPSEC_LIMANI_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

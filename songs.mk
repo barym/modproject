@@ -2366,3 +2366,12 @@ $(MID_SUBDIR)/mus_hg_win_minigame.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_mm_stone_tower.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G300 -V100
+
+$(MID_SUBDIR)/mus_sa2_intro.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G321 -V120
+
+$(MID_SUBDIR)/mus_sa2_egg_utopia__act_1.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G313 -V110
+
+$(MID_SUBDIR)/mus_sa2_final_boss.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G313 -V100
