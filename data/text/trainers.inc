@@ -4829,7 +4829,7 @@ Route310_Text_AntonioPostBattle:
 	.string "Ouch!$"
 
 Route310_Text_MarissaIntro:
-	.string "The parasol protects me from the\n
+	.string "The parasol protects me from the\n"
 	.string "volcanic ash.\l"
 	.string "Why don't you have one?$"
 

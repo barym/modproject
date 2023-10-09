@@ -62,8 +62,8 @@ struct CableCar
     u8 unused3[2];
     u16 bgTilemapBuffers[4][BG_SCREEN_SIZE];
     u16 *groundTilemap;
-    u16 *treesTilemap;
-    u16 *bgMountainsTilemap;
+    u16 *mountainsTilemap;
+    u16 *bgSeaTilemap;
     const u16 *pylonTopTilemap;
     u16 *pylonPoleTilemap;
 };
@@ -132,11 +132,9 @@ static const struct BgTemplate sBgTemplates[4] = {
 };
 
 static const u16 sGround_Tilemap[] = INCBIN_U16("graphics/cable_car/ground.bin.lz");
-//static const u16 sTrees_Tilemap[] = INCBIN_U16("graphics/cable_car/trees.bin.lz");
-static const u16 sTrees_Tilemap[] = INCBIN_U8("graphics/cable_car/mountains_bg.bin.lz");
-//static const u8 sBgMountains_Tilemap[] = INCBIN_U16("graphics/cable_car/bg_mountains.bin.lz");
-static const u8 sBgMountains_Tilemap[] = INCBIN_U8("graphics/cable_car/sea_bg.bin.lz");
-static const u16 sPylonTop_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_top.bin.lz");
+static const u16 sMountains_Tilemap[] = INCBIN_U16("graphics/cable_car/mountains.bin.lz");
+static const u16 sBgSea_Tilemap[] = INCBIN_U16("graphics/cable_car/bg_sea.bin.lz");
+static const u16 sPylonTop_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_top.bin");
 static const u16 sPylonPole_Tilemap[] = INCBIN_U16("graphics/cable_car/pylon_pole.bin.lz");
 
 static const struct CompressedSpriteSheet sSpriteSheets[] = {
@@ -239,7 +237,7 @@ void CableCar(void)
 {
     LockPlayerFieldControls();
     CreateTask(Task_LoadCableCar, 1);
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB(0, 0, 0));
 }
 
 static void CB2_LoadCableCar(void)
@@ -288,8 +286,8 @@ static void CB2_LoadCableCar(void)
 
         LoadSpritePalettes(sSpritePalettes);
         sCableCar->groundTilemap = malloc_and_decompress(sGround_Tilemap, &sizeOut);
-        sCableCar->treesTilemap = malloc_and_decompress(sTrees_Tilemap, &sizeOut);
-        sCableCar->bgMountainsTilemap = malloc_and_decompress(sBgMountains_Tilemap, &sizeOut);
+        sCableCar->mountainsTilemap = malloc_and_decompress(sMountains_Tilemap, &sizeOut);
+        sCableCar->bgSeaTilemap = malloc_and_decompress(sBgSea_Tilemap, &sizeOut);
         sCableCar->pylonPoleTilemap = malloc_and_decompress(sPylonPole_Tilemap, &sizeOut);
         sCableCar->pylonTopTilemap = sPylonTop_Tilemap;
         DecompressAndCopyTileDataToVram(0, gCableCarBg_Gfx, 0, 0, 0);
@@ -324,8 +322,8 @@ static void CB2_LoadCableCar(void)
         }
         break;
     case 6:
-        CopyToBgTilemapBufferRect_ChangePalette(1, sCableCar->treesTilemap, 0, 17, 32, 15, 17);
-        CopyToBgTilemapBufferRect_ChangePalette(2, sCableCar->bgMountainsTilemap, 0, 0, 30, 20, 17);
+        CopyToBgTilemapBufferRect_ChangePalette(1, sCableCar->mountainsTilemap, 0, 17, 32, 15, 17);
+        CopyToBgTilemapBufferRect_ChangePalette(2, sCableCar->bgSeaTilemap, 0, 0, 30, 20, 17);
         CopyToBgTilemapBufferRect_ChangePalette(3, sCableCar->pylonTopTilemap, 0, 0, 5, 2, 17);
         CopyToBgTilemapBufferRect_ChangePalette(3, sCableCar->pylonPoleTilemap, 0, 2, 2, 20, 17);
         gMain.state++;
@@ -343,7 +341,7 @@ static void CB2_LoadCableCar(void)
         gMain.state++;
         break;
     case 8:
-        BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB_BLACK);
+        BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB(0, 0, 0));
         FadeInNewBGM(MUS_CABLE_CAR, 1);
         SetBgRegs(TRUE);
         gMain.state++;
@@ -397,8 +395,8 @@ static void CB2_EndCableCar(void)
     ResetBgsAndClearDma3BusyFlags(0);
     sCableCar->pylonTopTilemap = NULL;
     FREE_AND_SET_NULL(sCableCar->pylonPoleTilemap);
-    FREE_AND_SET_NULL(sCableCar->bgMountainsTilemap);
-    FREE_AND_SET_NULL(sCableCar->treesTilemap);
+    FREE_AND_SET_NULL(sCableCar->bgSeaTilemap);
+    FREE_AND_SET_NULL(sCableCar->mountainsTilemap);
     FREE_AND_SET_NULL(sCableCar->groundTilemap);
     FREE_AND_SET_NULL(sCableCar);
     DmaFillLarge16(3, 0, (void *)VRAM, VRAM_SIZE, 0x1000);
@@ -461,7 +459,7 @@ static void Task_CableCar(u8 taskId)
         if (sCableCar->timer == 570)
         {
             sCableCar->state = 3;
-            BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB_BLACK);
+            BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB(0, 0, 0));
             FadeOutBGM(4);
         }
         break;
