@@ -94,7 +94,7 @@ Route310_Text_AshCanBeCollected:
 
 Route310_Text_PoochyenaStillFit:
 	.string "Hoho! I may have gotten old,\n"
-	.string "but my POOCHYENA is as fit as ever.$"
+	.string "but my POOCHYENA is as lively as ever.$"
 
 Route310_Text_TakingRestInThisShelter:
 	.string "I am resting in this shelter\n"
