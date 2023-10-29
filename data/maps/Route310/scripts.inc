@@ -68,7 +68,7 @@ Route310_EventScript_Craig::
 	end
 
 Route310_EventScript_Alex::
-	trainerbattle_single TRAINER_JAYLEN, Route310_Text_AlexIntro, Route310_Text_AlexDefeat
+	trainerbattle_single TRAINER_ALLEN, Route310_Text_AlexIntro, Route310_Text_AlexDefeat
 	msgbox Route310_Text_AlexPostBattle, MSGBOX_NPC
 	end
 

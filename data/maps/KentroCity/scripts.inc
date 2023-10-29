@@ -6,9 +6,13 @@
 .set LOCALID_SCIENTIST, 15
 
 KentroCity_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, RustboroCity_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_OnFrame
 	.byte 0
+
+RustboroCity_OnLoad:
+	call RustboroCity_EventScript_HideRoadblock
 
 RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
@@ -17,6 +21,9 @@ RustboroCity_OnTransition:
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
 	end
+
+RustboroCity_EventScript_HideRoadblock:
+	setmetatile 31, 52, 278, TRUE
 
 RustboroCity_EventScript_PositionScientistForExit::
 	goto_if_eq VAR_TEMP_0, 11, RustboroCity_EventScript_PositionScientistLeftExit

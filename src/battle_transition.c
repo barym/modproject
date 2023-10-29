@@ -131,6 +131,8 @@ static void Task_FrontierLogoWave(u8);
 static void Task_FrontierSquares(u8);
 static void Task_FrontierSquaresScroll(u8);
 static void Task_FrontierSquaresSpiral(u8);
+static void Task_Recon(u8);
+static void Task_Omnis(u8);
 static void VBlankCB_BattleTransition(void);
 static void VBlankCB_Swirl(void);
 static void HBlankCB_Swirl(void);
@@ -151,6 +153,8 @@ static void VBlankCB_WhiteBarsFade_Blend(void);
 static void HBlankCB_WhiteBarsFade(void);
 static void VBlankCB_AngledWipes(void);
 static void VBlankCB_Rayquaza(void);
+static void VBlankCB_Omnis(void);
+static void HBlankCB_Omnis(void);
 static bool8 Blur_Init(struct Task *);
 static bool8 Blur_Main(struct Task *);
 static bool8 Blur_End(struct Task *);
@@ -251,6 +255,12 @@ static bool8 FrontierSquaresScroll_Draw(struct Task *);
 static bool8 FrontierSquaresScroll_SetBlack(struct Task *);
 static bool8 FrontierSquaresScroll_Erase(struct Task *);
 static bool8 FrontierSquaresScroll_End(struct Task *);
+static bool8 Recon_Init(struct Task *);
+static bool8 Recon_SetGfx(struct Task *);
+static bool8 Omnis_Init(struct Task *);
+static bool8 Omnis_SetGfx(struct Task *);
+static bool8 Omnis_InitScanline(struct Task *);
+static bool8 Omnis_Main(struct Task *);
 static bool8 Mugshot_Init(struct Task *);
 static bool8 Mugshot_SetGfx(struct Task *);
 static bool8 Mugshot_ShowBanner(struct Task *);
@@ -282,6 +292,7 @@ static bool8 TransitionIntro_FadeFromGray(struct Task *);
 static bool8 IsIntroTaskDone(void);
 static bool16 UpdateRectangularSpiralLine(const s16 * const *, struct RectangularSpiralLine *);
 static void SpriteCB_FldEffPokeballTrail(struct Sprite *);
+static void SpriteCB_FldEffOmnisRunes(struct Sprite *);
 static void SpriteCB_MugshotTrainerPic(struct Sprite *);
 static void SpriteCB_WhiteBarFade(struct Sprite *);
 static bool8 MugshotTrainerPic_Pause(struct Sprite *);
@@ -289,11 +300,6 @@ static bool8 MugshotTrainerPic_Init(struct Sprite *);
 static bool8 MugshotTrainerPic_Slide(struct Sprite *);
 static bool8 MugshotTrainerPic_SlideSlow(struct Sprite *);
 static bool8 MugshotTrainerPic_SlideOffscreen(struct Sprite *);
-//ADDITIONS
-static void Task_Recon(u8 taskId);
-static bool8 Recon_Init(struct Task *);
-static bool8 Recon_SetGfx(struct Task *);
-
 
 static s16 sDebug_RectangularSpiralData;
 static u8 sTestingTransitionId;
@@ -342,10 +348,14 @@ static const u32 sFrontierSquares_EmptyBg_Tileset[] = INCBIN_U32("graphics/battl
 static const u32 sFrontierSquares_Shrink1_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_3.4bpp.lz");
 static const u32 sFrontierSquares_Shrink2_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_4.4bpp.lz");
 static const u32 sFrontierSquares_Tilemap[] = INCBIN_U32("graphics/battle_transitions/frontier_squares.bin");
-//ADDITION
 static const u32 sRecon_Palette[] = INCBIN_U32("graphics/battle_transitions/recon.gbapal");
 static const u32 sRecon_Tileset[] = INCBIN_U32("graphics/battle_transitions/recon.4bpp.lz");
 static const u32 sRecon_Tilemap[] = INCBIN_U32("graphics/battle_transitions/recon.bin.lz");
+static const u32 sOmnis_Palette[] = INCBIN_U32("graphics/battle_transitions/omnis.gbapal");
+static const u32 sOmnis_Tileset[] = INCBIN_U32("graphics/battle_transitions/omnis.4bpp.lz");
+static const u32 sOmnis_Tilemap[] = INCBIN_U32("graphics/battle_transitions/omnis.bin.lz");
+static const u8 sOmnisRunes_Gfx[] = INCBIN_U8("graphics/battle_transitions/omnis_runes.4bpp");
+
 
 // All battle transitions use the same intro
 static const TaskFunc sTasks_Intro[B_TRANSITION_COUNT] =
@@ -400,6 +410,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_FRONTIER_CIRCLES_ASYMMETRIC_SPIRAL_IN_SEQ] = Task_FrontierCirclesAsymmetricSpiralInSeq,
     [B_TRANSITION_FRONTIER_CIRCLES_SYMMETRIC_SPIRAL_IN_SEQ] = Task_FrontierCirclesSymmetricSpiralInSeq,
     [B_TRANSITION_RECON] = Task_Recon,
+    [B_TRANSITION_OMNIS] = Task_Omnis,
     [B_TRANSITION_MAY] = Task_May,
     [B_TRANSITION_CYNTHIA] = Task_Cynthia,
 };
@@ -510,18 +521,6 @@ static const TransitionStateFunc sPokeballsTrail_Funcs[] =
     PokeballsTrail_Init,
     PokeballsTrail_Main,
     PokeballsTrail_End
-};
-
-//ADDITIONS
-static const TransitionStateFunc sRecon_Funcs[] =
-{
-    Recon_Init,
-    Recon_SetGfx,
-    PatternWeave_Blend1,
-    PatternWeave_Blend2,
-    PatternWeave_FinishAppear,
-    FramesCountdown,
-    PatternWeave_CircularMask
 };
 
 #define NUM_POKEBALL_TRAILS 5
@@ -914,9 +913,57 @@ static const struct SpriteTemplate sSpriteTemplate_UnusedLass =
     .callback = SpriteCB_MugshotTrainerPic
 };
 
+static const struct SpriteFrameImage sSpriteImage_OmnisRunes[] =
+{
+    {sOmnisRunes_Gfx, sizeof(sOmnisRunes_Gfx)}
+};
+
+static const union AnimCmd sSpriteAnim_OmnisRunes[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_OmnisRunes[] =
+{
+    sSpriteAnim_OmnisRunes
+};
+
+static const union AffineAnimCmd sSpriteAffineAnim_OmnisRunes1[] =
+{
+    AFFINEANIMCMD_FRAME(0, 0, -4, 1),
+    AFFINEANIMCMD_JUMP(0)
+};
+
+static const union AffineAnimCmd sSpriteAffineAnim_OmnisRunes2[] =
+{
+    AFFINEANIMCMD_FRAME(0, 0, 4, 1),
+    AFFINEANIMCMD_JUMP(0)
+};
+
+static const union AffineAnimCmd *const sSpriteAffineAnimTable_OmnisRunes[] =
+{
+    sSpriteAffineAnim_OmnisRunes1,
+    sSpriteAffineAnim_OmnisRunes2
+};
+
+static const struct SpriteTemplate sSpriteTemplate_OmnisRunes =
+{
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_OMNIS_RUNES,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sSpriteAnimTable_OmnisRunes,
+    .images = sSpriteImage_OmnisRunes,
+    .affineAnims = sSpriteAffineAnimTable_OmnisRunes,
+    .callback = SpriteCB_FldEffOmnisRunes
+};
+
 static const u16 sFieldEffectPal_Pokeball[] = INCBIN_U16("graphics/field_effects/palettes/pokeball.gbapal");
+static const u16 sFieldEffectPal_OmnisRunes[] = INCBIN_U16("graphics/field_effects/palettes/omnis_runes.gbapal");
 
 const struct SpritePalette gSpritePalette_Pokeball = {sFieldEffectPal_Pokeball, FLDEFF_PAL_TAG_POKEBALL_TRAIL};
+const struct SpritePalette gSpritePalette_OmnisRunes = {sFieldEffectPal_OmnisRunes, FLDEFF_PAL_TAG_OMNIS_RUNES};
+
 
 static const u16 sMugshotPal_Sidney[] = INCBIN_U16("graphics/battle_transitions/sidney_bg.gbapal");
 static const u16 sMugshotPal_Phoebe[] = INCBIN_U16("graphics/battle_transitions/phoebe_bg.gbapal");
@@ -1023,6 +1070,30 @@ static const u8 sFrontierSquaresScroll_Positions[] = {
     29, 50, 40, 54, 14,  3, 47, 20,
     18, 25,  4, 36, 26, 42, 31,  8
 };
+
+static const TransitionStateFunc sRecon_Funcs[] =
+{
+    Recon_Init,
+    Recon_SetGfx,
+    PatternWeave_Blend1,
+    PatternWeave_Blend2,
+    PatternWeave_FinishAppear,
+    FramesCountdown,
+    PatternWeave_CircularMask
+};
+
+static const TransitionStateFunc sOmnis_Funcs[] =
+{
+    Omnis_Init,
+    Omnis_SetGfx,
+    Omnis_InitScanline,
+    Omnis_Main
+};
+
+#define NUM_OMNIS_RUNES 5
+static const s16 sOmnisRunes_StartXCoords[2] = { -16, DISPLAY_WIDTH + 16 };
+static const s16 sOmnisRunes_Delays[NUM_POKEBALL_TRAILS] = {0, 32, 64, 18, 48};
+static const s16 sOmnisRunes_Speeds[2] = {8, -8};
 
 //---------------------------
 // Main transition functions
@@ -4851,3 +4922,227 @@ static bool8 FrontierSquaresScroll_End(struct Task *task)
 #undef tScrollYDir
 #undef tScrollUpdateFlag
 #undef tSquareNum
+
+//---------------------------------
+// B_TRANSITION_OMNIS
+//---------------------------------
+
+#define tSinVal       data[1]
+#define tAmplitudeVal data[2]
+#define tTimer        data[3]
+#define tStartedFade  data[4]
+#define tBlendTarget2 data[5]
+#define tBlendTarget1 data[6]
+#define tSinDecrement data[7]
+#define sSide         data[0]
+#define sDelay        data[1]
+#define sPrevX        data[2]
+
+static void Task_Omnis(u8 taskId)
+{
+    while (sOmnis_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static bool8 Omnis_Init(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    InitTransitionData();
+    ScanlineEffect_Clear();
+    ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+    task->tAmplitudeVal = 32 << 8;
+    task->tSinVal = 0x7FFF;
+    task->tBlendTarget2 = 0;
+    task->tBlendTarget1 = 16;
+    task->tSinDecrement = 2560;
+    sTransitionData->BLDCNT = BLDCNT_TGT1_BG0 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL;
+    sTransitionData->BLDALPHA = BLDALPHA_BLEND(task->tBlendTarget2, task->tBlendTarget1);
+    REG_BLDCNT = sTransitionData->BLDCNT;
+    REG_BLDALPHA = sTransitionData->BLDALPHA;
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, BG_SCREEN_SIZE);
+    LZ77UnCompVram(sOmnis_Tileset, tileset);
+    LoadPalette(sOmnis_Palette, BG_PLTT_ID(15), sizeof(sOmnis_Palette));
+    sTransitionData->cameraY = 0;
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Omnis_SetGfx(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sOmnis_Tilemap, tilemap);
+
+    task->tState++;
+    return TRUE;
+}
+
+static bool8 Omnis_InitScanline(struct Task *task)
+{
+    u8 i;
+
+    for (i = 0; i < DISPLAY_HEIGHT; i++)
+        gScanlineEffectRegBuffers[1][i] = sTransitionData->cameraY;
+
+    SetVBlankCallback(VBlankCB_Omnis);
+    SetHBlankCallback(HBlankCB_Omnis);
+    EnableInterrupts(INTR_FLAG_HBLANK);
+
+    task->tState++;
+    return TRUE;
+}
+
+static bool8 Omnis_Main(struct Task *task)
+{
+    u8 i;
+    u16 sinVal, amplitude, sinSpread;
+
+    s16 side;
+    s16 startX[ARRAY_COUNT(sOmnisRunes_StartXCoords)];
+    s16 delays[ARRAY_COUNT(sOmnisRunes_Delays)];
+    memcpy(startX, sOmnisRunes_StartXCoords, sizeof(sOmnisRunes_StartXCoords));
+    memcpy(delays, sOmnisRunes_Delays, sizeof(sOmnisRunes_Delays));
+
+    sTransitionData->VBlank_DMA = FALSE;
+
+    amplitude = task->tAmplitudeVal >> 8;
+    sinVal = task->tSinVal;
+    sinSpread = 384;
+
+    task->tSinVal -= task->tSinDecrement;
+
+    if (task->tTimer >= 70)
+    {
+        // Decrease amount of logo movement and distortion
+        // until it rests normally in the middle of the screen.
+        if (task->tAmplitudeVal - 384 >= 0)
+            task->tAmplitudeVal -= 384;
+        else
+            task->tAmplitudeVal = 0;
+    }
+
+    if (task->tTimer >= 0 && task->tTimer % 3 == 0)
+    {
+        // Blend logo into view
+        if (task->tBlendTarget2 < 16)
+            task->tBlendTarget2++;
+        else if (task->tBlendTarget1 > 0)
+            task->tBlendTarget1--;
+
+        sTransitionData->BLDALPHA = BLDALPHA_BLEND(task->tBlendTarget2, task->tBlendTarget1);
+    }
+
+    // Move logo up and down and distort it
+    for (i = 0; i < DISPLAY_HEIGHT; i++, sinVal += sinSpread)
+    {
+        s16 index = sinVal / 256;
+        gScanlineEffectRegBuffers[0][i] = sTransitionData->cameraY + Sin(index & 0xff, amplitude);
+    }
+
+    if (task->tTimer == 120) {
+        side = Random() & 1;
+        for (i = 0; i < NUM_OMNIS_RUNES; i++, side ^= 1)
+        {
+            gFieldEffectArguments[0] = startX[side];   // x
+            gFieldEffectArguments[1] = (i * 32) + 16;  // y
+            gFieldEffectArguments[2] = side;
+            gFieldEffectArguments[3] = delays[i];
+            FieldEffectStart(FLDEFF_OMNIS_RUNES);
+        }
+    }
+
+    if (++task->tTimer == 250) //!FieldEffectActiveListContains(FLDEFF_OMNIS_RUNES))
+    {
+        task->tStartedFade++;
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    }
+
+    if (task->tStartedFade && !gPaletteFade.active)
+        DestroyTask(FindTaskIdByFunc(Task_Omnis));
+
+    task->tSinDecrement -= 17;
+    sTransitionData->VBlank_DMA++;
+    return FALSE;
+}
+
+bool8 FldEff_OmnisRunes(void)
+{
+    u8 spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRunes, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+    gSprites[spriteId].oam.priority = 0;
+    gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+    gSprites[spriteId].sSide = gFieldEffectArguments[2];
+    gSprites[spriteId].sDelay = gFieldEffectArguments[3];
+    gSprites[spriteId].sPrevX = -1;
+    InitSpriteAffineAnim(&gSprites[spriteId]);
+    StartSpriteAffineAnim(&gSprites[spriteId], gFieldEffectArguments[2]);
+    return FALSE;
+}
+
+static void SpriteCB_FldEffOmnisRunes(struct Sprite *sprite)
+{
+    s16 speeds[ARRAY_COUNT(sOmnisRunes_Speeds)];
+    memcpy(speeds, sOmnisRunes_Speeds, sizeof(sOmnisRunes_Speeds));
+
+    if (sprite->sDelay != 0)
+    {
+        sprite->sDelay--;
+    }
+    else
+    {
+        if (sprite->x >= 0 && sprite->x <= DISPLAY_WIDTH)
+        {
+            // Set Pokéball position
+            s16 posX = sprite->x >> 3;
+            s16 posY = sprite->y >> 3;
+
+            // If Pokéball moved forward clear trail behind it
+            if (posX != sprite->sPrevX)
+            {
+                u32 var;
+                u16 *ptr;
+
+                sprite->sPrevX = posX;
+                var = ((REG_BG0CNT >> 8) & 0x1F) << 11;
+                ptr = (u16 *)(BG_VRAM + var);
+
+                // SET_TILE(ptr, posY - 2, posX, 1);
+                // SET_TILE(ptr, posY - 1, posX, 1);
+                // SET_TILE(ptr, posY - 0, posX, 1);
+                // SET_TILE(ptr, posY + 1, posX, 1);
+            }
+        }
+        sprite->x += speeds[sprite->sSide];
+        if (sprite->x < -15 || sprite->x > DISPLAY_WIDTH + 15)
+            FieldEffectStop(sprite, FLDEFF_OMNIS_RUNES);
+    }
+}
+
+static void VBlankCB_Omnis(void)
+{
+    VBlankCB_BattleTransition();
+    REG_BLDCNT = sTransitionData->BLDCNT;
+    REG_BLDALPHA = sTransitionData->BLDALPHA;
+
+    if (sTransitionData->VBlank_DMA)
+        DmaCopy16(3, gScanlineEffectRegBuffers[0], gScanlineEffectRegBuffers[1], DISPLAY_HEIGHT * 2);
+}
+
+static void HBlankCB_Omnis(void)
+{
+    u16 var = gScanlineEffectRegBuffers[1][REG_VCOUNT];
+    REG_BG0VOFS = var;
+}
+
+#undef tSinVal
+#undef tAmplitudeVal
+#undef tTimer
+#undef tStartedFade
+#undef tBlendTarget2
+#undef tBlendTarget1
+#undef tSinDecrement
+#undef sSide
+#undef sDelay
+#undef sPrevX

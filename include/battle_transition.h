@@ -5,10 +5,12 @@ void BattleTransition_StartOnField(u8 transitionId);
 void BattleTransition_Start(u8 transitionId);
 bool8 IsBattleTransitionDone(void);
 bool8 FldEff_PokeballTrail(void);
+bool8 FldEff_OmnisRunes(void);
 void Task_BattleTransition_Intro(u8 taskId);
 void GetBg0TilesDst(u16 **tilemap, u16 **tileset);
 
 extern const struct SpritePalette gSpritePalette_Pokeball;
+extern const struct SpritePalette gSpritePalette_OmnisRunes;
 
 enum {
     MUGSHOT_SIDNEY,
@@ -65,6 +67,7 @@ enum {
     B_TRANSITION_FRONTIER_CIRCLES_ASYMMETRIC_SPIRAL_IN_SEQ,
     B_TRANSITION_FRONTIER_CIRCLES_SYMMETRIC_SPIRAL_IN_SEQ,
     B_TRANSITION_RECON,
+    B_TRANSITION_OMNIS,
     B_TRANSITION_MAY,
     B_TRANSITION_CYNTHIA,
     B_TRANSITION_COUNT

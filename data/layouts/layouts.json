@@ -197,7 +197,7 @@
       "width": 42,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Kentro",
       "border_filepath": "data/layouts/Route304/border.bin",
       "blockdata_filepath": "data/layouts/Route304/map.bin"
     },
