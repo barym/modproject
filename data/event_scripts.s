@@ -1075,3 +1075,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/AtmosCavern_B2F/scripts.inc"
 
 	.include "data/maps/AtmosCavern_2F/scripts.inc"
+
+	.include "data/maps/Route311/scripts.inc"

@@ -219,3 +219,6 @@ const u16 gMetatileAttributes_Oreinos[] = INCBIN_U16("data/tilesets/secondary/or
 
 const u16 gMetatiles_AtmosCavern[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/metatiles.bin");
 const u16 gMetatileAttributes_AtmosCavern[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/metatile_attributes.bin");
+
+const u16 gMetatiles_Route311[] = INCBIN_U16("data/tilesets/secondary/route_311/metatiles.bin");
+const u16 gMetatileAttributes_Route311[] = INCBIN_U16("data/tilesets/secondary/route_311/metatile_attributes.bin");

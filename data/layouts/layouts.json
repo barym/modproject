@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_AtmosCavern",
       "border_filepath": "data/layouts/AtmosCavern_B2F/border.bin",
       "blockdata_filepath": "data/layouts/AtmosCavern_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE311",
+      "name": "Route311_Layout",
+      "width": 82,
+      "height": 70,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route311",
+      "border_filepath": "data/layouts/Route311/border.bin",
+      "blockdata_filepath": "data/layouts/Route311/map.bin"
     }
   ]
 }

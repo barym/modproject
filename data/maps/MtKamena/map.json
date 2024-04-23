@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 32,
+      "x": 31,
       "y": 59,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -212,7 +212,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
       "x": 32,
-      "y": 56,
+      "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -369,7 +369,7 @@
       "x": 16,
       "y": 52,
       "elevation": 0,
-      "dest_map": "MAP_MT_KAMENA",
+      "dest_map": "MAP_ROUTE311",
       "dest_warp_id": "0"
     },
     {

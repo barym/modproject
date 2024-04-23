@@ -869,3 +869,14 @@ const struct Tileset gTileset_AtmosCavern =
     .metatileAttributes = gMetatileAttributes_AtmosCavern,
     .callback = InitTilesetAnim_AtmosCavern,
 };
+
+const struct Tileset gTileset_Route311 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route311,
+    .palettes = gTilesetPalettes_Route311,
+    .metatiles = gMetatiles_Route311,
+    .metatileAttributes = gMetatileAttributes_Route311,
+    .callback = NULL,
+};
