@@ -76,6 +76,8 @@ static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
 static void QueueAnimTiles_Kentro_Fountain(u16);
+static void QueueAnimTiles_Kentro_RouteSign(u16);
+static void QueueAnimTiles_Kentro_ArrowSign(u16);
 static void QueueAnimTiles_AtmosCavern_Steam(u16);
 static void QueueAnimTiles_AtmosCavern_Waterfall(u16);
 static void QueueAnimTiles_AtmosCavern_Lava(u16);
@@ -556,7 +558,35 @@ const u16 gTilesetAnims_Kentro_Fountain_Frame1[] = INCBIN_U16("data/tilesets/sec
 
 const u16 *const gTilesetAnims_Kentro_Fountain[] = {
     gTilesetAnims_Kentro_Fountain_Frame0,
-    gTilesetAnims_Kentro_Fountain_Frame1
+    gTilesetAnims_Kentro_Fountain_Frame1,
+};
+
+const u16 gTilesetAnims_Kentro_RouteSign_Frame0[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/route_sign/0.4bpp");
+const u16 gTilesetAnims_Kentro_RouteSign_Frame1[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/route_sign/1.4bpp");
+const u16 gTilesetAnims_Kentro_RouteSign_Frame2[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/route_sign/2.4bpp");
+const u16 gTilesetAnims_Kentro_RouteSign_Frame3[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/route_sign/3.4bpp");
+const u16 gTilesetAnims_Kentro_RouteSign_Frame4[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/route_sign/4.4bpp");
+
+const u16 *const gTilesetAnims_Kentro_RouteSign[] = {
+    gTilesetAnims_Kentro_RouteSign_Frame0,
+    gTilesetAnims_Kentro_RouteSign_Frame1,
+    gTilesetAnims_Kentro_RouteSign_Frame2,
+    gTilesetAnims_Kentro_RouteSign_Frame3,
+    gTilesetAnims_Kentro_RouteSign_Frame4,
+};
+
+const u16 gTilesetAnims_Kentro_ArrowSign_Frame0[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/arrow_sign/0.4bpp");
+const u16 gTilesetAnims_Kentro_ArrowSign_Frame1[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/arrow_sign/1.4bpp");
+const u16 gTilesetAnims_Kentro_ArrowSign_Frame2[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/arrow_sign/2.4bpp");
+const u16 gTilesetAnims_Kentro_ArrowSign_Frame3[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/arrow_sign/3.4bpp");
+const u16 gTilesetAnims_Kentro_ArrowSign_Frame4[] = INCBIN_U16("data/tilesets/secondary/kentro/anim/arrow_sign/4.4bpp");
+
+const u16 *const gTilesetAnims_Kentro_ArrowSign[] = {
+    gTilesetAnims_Kentro_ArrowSign_Frame0,
+    gTilesetAnims_Kentro_ArrowSign_Frame1,
+    gTilesetAnims_Kentro_ArrowSign_Frame2,
+    gTilesetAnims_Kentro_ArrowSign_Frame3,
+    gTilesetAnims_Kentro_ArrowSign_Frame4,
 };
 
 const u16 gTilesetAnims_AtmosCavern_Steam_Frame0[] = INCBIN_U16("data/tilesets/secondary/atmos_cavern/anim/steam/0.4bpp");
@@ -900,7 +930,11 @@ static void TilesetAnim_AtmosCavern(u16 timer)
 static void TilesetAnim_Kentro(u16 timer)
 {
     if (timer % 8 == 0)
+    {
         QueueAnimTiles_Kentro_Fountain(timer / 8);
+        QueueAnimTiles_Kentro_RouteSign(timer / 8);
+        QueueAnimTiles_Kentro_ArrowSign(timer / 8);
+    }
 }
 
 static void TilesetAnim_Rustboro(u16 timer)
@@ -1238,6 +1272,18 @@ static void QueueAnimTiles_Kentro_Fountain(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Kentro_Fountain);
     AppendTilesetAnimToBuffer(gTilesetAnims_Kentro_Fountain[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 448)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Kentro_RouteSign(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Kentro_RouteSign);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Kentro_RouteSign[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 390)), 8 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Kentro_ArrowSign(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Kentro_ArrowSign);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Kentro_ArrowSign[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 406)), 8 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_AtmosCavern_Steam(u16 timer)

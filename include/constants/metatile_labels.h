@@ -264,6 +264,14 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
+// gTileset_Kentro
+#define METATILE_Kentro_Pavement     0x2BB
+#define METATILE_Kentro_Road         0x301
+#define METATILE_Kentro_Road_Bottom  0x309
+#define METATILE_Kentro_Road_Left    0x300
+#define METATILE_Kentro_Road_Right   0x302
+#define METATILE_Kentro_Road_Top     0x2F9
+
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207
 #define METATILE_Lavaridge_CaveEntrance_Bottom  0x25E

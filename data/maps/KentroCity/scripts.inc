@@ -13,6 +13,7 @@ KentroCity_MapScripts::
 
 RustboroCity_OnLoad:
 	call RustboroCity_EventScript_HideRoadblock
+	end
 
 RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
@@ -23,7 +24,42 @@ RustboroCity_OnTransition:
 	end
 
 RustboroCity_EventScript_HideRoadblock:
-	setmetatile 31, 52, 278, TRUE
+	setmetatile 30, 40, METATILE_Kentro_Pavement, FALSE
+	setmetatile 31, 40, METATILE_Kentro_Pavement, FALSE
+	setmetatile 32, 40, METATILE_Kentro_Pavement, FALSE
+	setmetatile 33, 40, METATILE_Kentro_Pavement, FALSE
+
+	setmetatile 29, 41, METATILE_Kentro_Road, FALSE
+	setmetatile 30, 41, METATILE_Kentro_Road_Top, FALSE
+	setmetatile 31, 41, METATILE_Kentro_Road_Top, FALSE
+	setmetatile 32, 41, METATILE_Kentro_Road_Top, FALSE
+	setmetatile 33, 41, METATILE_Kentro_Road_Top, FALSE
+	setmetatile 34, 41, METATILE_Kentro_Road_Top, FALSE
+
+	setmetatile 29, 42, METATILE_Kentro_Road_Bottom, FALSE
+	setmetatile 30, 42, METATILE_Kentro_Road_Bottom, FALSE
+	setmetatile 31, 42, METATILE_Kentro_Road, FALSE
+	setmetatile 32, 42, METATILE_Kentro_Road, FALSE
+	setmetatile 33, 42, METATILE_Kentro_Road_Bottom, FALSE
+	setmetatile 34, 42, METATILE_Kentro_Road_Bottom, FALSE
+
+	setmetatile 30, 43, METATILE_Kentro_Pavement, FALSE
+	setmetatile 31, 43, METATILE_Kentro_Road_Left, FALSE
+	setmetatile 32, 43, METATILE_Kentro_Road_Right, FALSE
+	setmetatile 33, 43, METATILE_Kentro_Pavement, FALSE
+
+	setmetatile 30, 44, METATILE_Kentro_Pavement, FALSE
+	setmetatile 31, 44, METATILE_Kentro_Road_Left, FALSE
+	setmetatile 32, 44, METATILE_Kentro_Road_Right, FALSE
+	setmetatile 33, 44, METATILE_Kentro_Pavement, FALSE
+
+	setmetatile 31, 46, METATILE_Kentro_Road_Left, FALSE
+	setmetatile 32, 46, METATILE_Kentro_Road_Right, FALSE
+
+	setmetatile 31, 47, METATILE_Kentro_Road_Left, FALSE
+	setmetatile 32, 47, METATILE_Kentro_Road_Right, FALSE
+
+	return
 
 RustboroCity_EventScript_PositionScientistForExit::
 	goto_if_eq VAR_TEMP_0, 11, RustboroCity_EventScript_PositionScientistLeftExit
