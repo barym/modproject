@@ -4474,7 +4474,7 @@
     {
       "id": "LAYOUT_ATMOS_CAVERN_1F",
       "name": "AtmosCavern_1F_Layout",
-      "width": 45,
+      "width": 47,
       "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_AtmosCavern",
