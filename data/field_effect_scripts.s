@@ -73,6 +73,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
 	.4byte gFieldEffectScript_OmnisRunes				@ FLDEFF_OMNIS_RUNES
+	.4byte gFieldEffectScript_AshLongGrass				@ FLDEFF_ASH_LONG_GRASS
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -348,4 +349,8 @@ gFieldEffectScript_MoveDeoxysRock::
 gFieldEffectScript_OmnisRunes::
 	field_eff_loadpal gSpritePalette_OmnisRunes
 	field_eff_callnative FldEff_OmnisRunes
+	field_eff_end
+
+gFieldEffectScript_AshLongGrass::
+	field_eff_loadfadedpal_callnative gSpritePalette_AshLongGrass, FldEff_AshLongGrass
 	field_eff_end

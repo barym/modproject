@@ -1286,4 +1286,40 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza = {
     .callback = UpdateRayquazaSpotlightEffect,
 };
 
+static const struct SpriteFrameImage sPicTable_AshLongGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_AshLongGrass, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_AshLongGrass, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_AshLongGrass, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_AshLongGrass, 2, 2, 3),
+};
+
+static const union AnimCmd sAnim_AshLongGrass[] =
+{
+    ANIMCMD_FRAME(1, 3),
+    ANIMCMD_FRAME(2, 3),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_AshLongGrass[] =
+{
+    sAnim_AshLongGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_AshLongGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_ASH_LONG_GRASS,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_AshLongGrass,
+    .images = sPicTable_AshLongGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateAshLongGrassFieldEffect,
+};
+
+const struct SpritePalette gSpritePalette_AshLongGrass = {gFieldEffectPal_AshLongGrass, FLDEFF_PAL_TAG_ASH_LONG_GRASS};
+
 static const struct SpritePalette sSpritePalette_Unused = {gObjectEventPal_Npc3, FLDEFF_PAL_TAG_UNKNOWN};

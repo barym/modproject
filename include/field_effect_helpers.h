@@ -39,6 +39,7 @@ void UpdateShortGrassFieldEffect(struct Sprite *);
 void UpdateHotSpringsWaterFieldEffect(struct Sprite *);
 void UpdateBubblesFieldEffect(struct Sprite *);
 void UpdateSparkleFieldEffect(struct Sprite *);
+void UpdateAshLongGrassFieldEffect(struct Sprite *);
 void SetSpriteInvisible(u8 spriteId);
 void ShowWarpArrowSprite(u8 spriteId, u8 direction, s16 x, s16 y);
 
