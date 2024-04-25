@@ -384,7 +384,8 @@
 // gTileset_Oreinos
 #define METATILE_Oreinos_AshField                  0x218
 #define METATILE_Oreinos_AshGrass                  0x20A
-#define METATILE_Oreinos_AshLongGrass              0x23F
+#define METATILE_Oreinos_AshLongGrass              0x23E
+#define METATILE_Oreinos_AshLongGrass_Root         0x246
 #define METATILE_Oreinos_BrownCaveEntrance_Bottom  0x261
 #define METATILE_Oreinos_BrownCaveEntrance_Top     0x259
 #define METATILE_Oreinos_BrownCaveIndent           0x208
@@ -393,7 +394,8 @@
 #define METATILE_Oreinos_Door_DarkRoof             0x2F7
 #define METATILE_Oreinos_Door_LightRoof            0x2A5
 #define METATILE_Oreinos_NormalGrass               0x212
-#define METATILE_Oreinos_NormalLongGrass           0x247
+#define METATILE_Oreinos_NormalLongGrass           0x23F
+#define METATILE_Oreinos_NormalLongGrass_Root      0x247
 #define METATILE_Oreinos_RedCaveEntrance_Bottom    0x34F
 #define METATILE_Oreinos_RedCaveEntrance_Top       0x347
 #define METATILE_Oreinos_RedRockWall               0x269
