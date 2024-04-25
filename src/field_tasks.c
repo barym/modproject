@@ -765,18 +765,28 @@ static void AshGrassPerStepCallback(u8 taskId)
             StartAshFieldEffect(x, y, METATILE_Fallarbor_NormalGrass, 4);
         else if (MapGridGetMetatileIdAt(x, y) == METATILE_Oreinos_AshGrass)
             StartAshFieldEffect(x, y, METATILE_Oreinos_NormalGrass, 4);
+        else if (MapGridGetMetatileIdAt(x, y) == METATILE_Oreinos_AshGrass_Left)
+            StartAshFieldEffect(x, y, METATILE_Oreinos_NormalGrass_Left, 4);
+        else if (MapGridGetMetatileIdAt(x, y) == METATILE_Oreinos_AshGrass_Right)
+            StartAshFieldEffect(x, y, METATILE_Oreinos_NormalGrass_Right, 4);
         else if (MapGridGetMetatileIdAt(x, y) == METATILE_Oreinos_AshLongGrass)
         {
             StartAshFieldEffect(x, y, METATILE_Oreinos_NormalLongGrass, 4);
-            if (MapGridGetMetatileIdAt(x, y + 1) == METATILE_Oreinos_AshLongGrass_Root)
-                StartAshFieldEffect(x, y + 1, METATILE_Oreinos_NormalLongGrass_Root, 4);
+            switch (MapGridGetMetatileIdAt(x, y + 1))
+            {
+                case METATILE_Oreinos_AshLongGrass_Root:
+                    StartAshFieldEffect(x, y + 1, METATILE_Oreinos_NormalLongGrass_Root, 4);
+                    break;
+                case METATILE_Oreinos_AshLongGrass_Root_Left:
+                    StartAshFieldEffect(x, y + 1, METATILE_Oreinos_NormalLongGrass_Root_Left, 4);
+                    break;
+                case METATILE_Oreinos_AshLongGrass_Root_Right:
+                    StartAshFieldEffect(x, y + 1, METATILE_Oreinos_NormalLongGrass_Root_Right, 4);
+                    break;
+                default:
+                    break;
+            }
         }
-        // else if (MapGridGetMetatileIdAt(x, y) == METATILE_Oreinos_AshLongGrass_Root)
-        // {
-        //     StartAshFieldEffect(x, y, METATILE_Oreinos_NormalLongGrass_Root, 4);
-        //     if (MapGridGetMetatileIdAt(x, y - 1) == METATILE_Oreinos_AshLongGrass)
-        //         StartAshFieldEffect(x, y - 1, METATILE_Oreinos_NormalLongGrass, 4);
-        // }
         else
             StartAshFieldEffect(x, y, METATILE_Lavaridge_NormalGrass, 4);
 
