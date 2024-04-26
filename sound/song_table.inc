@@ -981,6 +981,7 @@ gSongTable::
 	song mus_mm_stone_tower, 0, 0
 	song mus_sa2_intro, 0, 0
 	song mus_sa2_egg_utopia__act_1, 0, 0
+	song mus_sa2_7_boss, 0, 0
 	song mus_sa2_final_boss, 0, 0
 
 	.align 2

@@ -354,7 +354,9 @@ static const u32 sRecon_Tilemap[] = INCBIN_U32("graphics/battle_transitions/reco
 static const u32 sOmnis_Palette[] = INCBIN_U32("graphics/battle_transitions/omnis.gbapal");
 static const u32 sOmnis_Tileset[] = INCBIN_U32("graphics/battle_transitions/omnis.4bpp.lz");
 static const u32 sOmnis_Tilemap[] = INCBIN_U32("graphics/battle_transitions/omnis.bin.lz");
-static const u8 sOmnisRunes_Gfx[] = INCBIN_U8("graphics/battle_transitions/omnis_runes.4bpp");
+static const u8 sOmnisRune1_Gfx[] = INCBIN_U8("graphics/battle_transitions/omnis_rune1.4bpp");
+static const u8 sOmnisRune2_Gfx[] = INCBIN_U8("graphics/battle_transitions/omnis_rune2.4bpp");
+static const u8 sOmnisRune3_Gfx[] = INCBIN_U8("graphics/battle_transitions/omnis_rune3.4bpp");
 
 
 // All battle transitions use the same intro
@@ -913,20 +915,52 @@ static const struct SpriteTemplate sSpriteTemplate_UnusedLass =
     .callback = SpriteCB_MugshotTrainerPic
 };
 
-static const struct SpriteFrameImage sSpriteImage_OmnisRunes[] =
+static const struct SpriteFrameImage sSpriteImage_OmnisRune1[] =
 {
-    {sOmnisRunes_Gfx, sizeof(sOmnisRunes_Gfx)}
+    {sOmnisRune1_Gfx, sizeof(sOmnisRune1_Gfx)}
 };
 
-static const union AnimCmd sSpriteAnim_OmnisRunes[] =
+static const struct SpriteFrameImage sSpriteImage_OmnisRune2[] =
+{
+    {sOmnisRune2_Gfx, sizeof(sOmnisRune2_Gfx)}
+};
+
+static const struct SpriteFrameImage sSpriteImage_OmnisRune3[] =
+{
+    {sOmnisRune3_Gfx, sizeof(sOmnisRune3_Gfx)}
+};
+
+static const union AnimCmd sSpriteAnim_OmnisRune1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END
 };
 
-static const union AnimCmd *const sSpriteAnimTable_OmnisRunes[] =
+static const union AnimCmd sSpriteAnim_OmnisRune2[] =
 {
-    sSpriteAnim_OmnisRunes
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_OmnisRune3[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_OmnisRune1[] =
+{
+    sSpriteAnim_OmnisRune1,
+};
+
+static const union AnimCmd *const sSpriteAnimTable_OmnisRune2[] =
+{
+    sSpriteAnim_OmnisRune2,
+};
+
+static const union AnimCmd *const sSpriteAnimTable_OmnisRune3[] =
+{
+    sSpriteAnim_OmnisRune3,
 };
 
 static const union AffineAnimCmd sSpriteAffineAnim_OmnisRunes1[] =
@@ -947,13 +981,35 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_OmnisRunes[] =
     sSpriteAffineAnim_OmnisRunes2
 };
 
-static const struct SpriteTemplate sSpriteTemplate_OmnisRunes =
+static const struct SpriteTemplate sSpriteTemplate_OmnisRune1 =
 {
     .tileTag = TAG_NONE,
     .paletteTag = FLDEFF_PAL_TAG_OMNIS_RUNES,
     .oam = &gObjectEventBaseOam_32x32,
-    .anims = sSpriteAnimTable_OmnisRunes,
-    .images = sSpriteImage_OmnisRunes,
+    .anims = sSpriteAnimTable_OmnisRune1,
+    .images = sSpriteImage_OmnisRune1,
+    .affineAnims = sSpriteAffineAnimTable_OmnisRunes,
+    .callback = SpriteCB_FldEffOmnisRunes
+};
+
+static const struct SpriteTemplate sSpriteTemplate_OmnisRune2 =
+{
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_OMNIS_RUNES,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sSpriteAnimTable_OmnisRune2,
+    .images = sSpriteImage_OmnisRune2,
+    .affineAnims = sSpriteAffineAnimTable_OmnisRunes,
+    .callback = SpriteCB_FldEffOmnisRunes
+};
+
+static const struct SpriteTemplate sSpriteTemplate_OmnisRune3 =
+{
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_OMNIS_RUNES,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sSpriteAnimTable_OmnisRune3,
+    .images = sSpriteImage_OmnisRune3,
     .affineAnims = sSpriteAffineAnimTable_OmnisRunes,
     .callback = SpriteCB_FldEffOmnisRunes
 };
@@ -1090,10 +1146,11 @@ static const TransitionStateFunc sOmnis_Funcs[] =
     Omnis_Main
 };
 
-#define NUM_OMNIS_RUNES 5
+#define NUM_OMNIS_RUNES 14
 static const s16 sOmnisRunes_StartXCoords[2] = { -16, DISPLAY_WIDTH + 16 };
-static const s16 sOmnisRunes_Delays[NUM_POKEBALL_TRAILS] = {0, 32, 64, 18, 48};
-static const s16 sOmnisRunes_Speeds[2] = {8, -8};
+static const s16 sOmnisRunes_Delays[NUM_OMNIS_RUNES] = {0, 32, 64, 18, 48, 12, 24,
+                                                        88, 76, 112, 82, 128, 96, 64};
+static const s16 sOmnisRunes_Speeds[2] = {-10, -6};
 
 //---------------------------
 // Main transition functions
@@ -5046,10 +5103,11 @@ static bool8 Omnis_Main(struct Task *task)
         side = Random() & 1;
         for (i = 0; i < NUM_OMNIS_RUNES; i++, side ^= 1)
         {
-            gFieldEffectArguments[0] = startX[side];   // x
-            gFieldEffectArguments[1] = (i * 32) + 16;  // y
+            gFieldEffectArguments[0] = (i % 8 * 32) + 16;  // x
+            gFieldEffectArguments[1] = DISPLAY_HEIGHT + 16; //startX[side];   // y
             gFieldEffectArguments[2] = side;
             gFieldEffectArguments[3] = delays[i];
+            gFieldEffectArguments[4] = Random() % 3; // Select a random rune
             FieldEffectStart(FLDEFF_OMNIS_RUNES);
         }
     }
@@ -5070,7 +5128,23 @@ static bool8 Omnis_Main(struct Task *task)
 
 bool8 FldEff_OmnisRunes(void)
 {
-    u8 spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRunes, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+    u8 spriteId;
+    switch (gFieldEffectArguments[4])
+    {
+        case 0:
+            spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRune1, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+            break;
+        case 1:
+            spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRune2, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+            break;
+        case 2:
+            spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRune3, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+            break;
+        default:
+            spriteId = CreateSpriteAtEnd(&sSpriteTemplate_OmnisRune1, gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+            break;
+    }
+
     gSprites[spriteId].oam.priority = 0;
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].sSide = gFieldEffectArguments[2];
@@ -5114,8 +5188,10 @@ static void SpriteCB_FldEffOmnisRunes(struct Sprite *sprite)
                 // SET_TILE(ptr, posY + 1, posX, 1);
             }
         }
-        sprite->x += speeds[sprite->sSide];
-        if (sprite->x < -15 || sprite->x > DISPLAY_WIDTH + 15)
+        sprite->x += Sin(sprite->y, 3);
+
+        sprite->y += speeds[sprite->sSide];
+        if (sprite->y < -15 || sprite->y > DISPLAY_HEIGHT + 15)
             FieldEffectStop(sprite, FLDEFF_OMNIS_RUNES);
     }
 }

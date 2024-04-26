@@ -6445,7 +6445,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_RECON:
             return MUS_HG_VS_RIVAL;
         case TRAINER_CLASS_MAY:
-            return MUS_HG_VS_RIVAL;
+            return MUS_SA2_7_BOSS;
         case TRAINER_CLASS_CYNTHIA:
             return MUS_DP_VS_CHAMPION;
         default:

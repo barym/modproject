@@ -2373,5 +2373,8 @@ $(MID_SUBDIR)/mus_sa2_intro.s: %.s: %.mid
 $(MID_SUBDIR)/mus_sa2_egg_utopia__act_1.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G313 -V110
 
+$(MID_SUBDIR)/mus_sa2_7_boss.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G322 -V98
+
 $(MID_SUBDIR)/mus_sa2_final_boss.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G313 -V100

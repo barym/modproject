@@ -918,7 +918,8 @@
 #define MUS_MM_STONE_TOWER                977 // Stone Tower Temple
 #define MUS_SA2_INTRO                     978 // Opening
 #define MUS_SA2_EGG_UTOPIA_1              979 // Egg Utopia Act 1
-#define MUS_SA2_FINAL_BOSS                980 // Final Boss
+#define MUS_SA2_7_BOSS                    980 // Egg Utopia Boss
+#define MUS_SA2_FINAL_BOSS                981 // Final Boss
 
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().

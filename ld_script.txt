@@ -1609,6 +1609,7 @@ SECTIONS {
         sound/songs/midi/mus_mm_stone_tower.o(.rodata);
         sound/songs/midi/mus_sa2_intro.o(.rodata);
         sound/songs/midi/mus_sa2_egg_utopia__act_1.o(.rodata);
+        sound/songs/midi/mus_sa2_7_boss.o(.rodata);
         sound/songs/midi/mus_sa2_final_boss.o(.rodata);
     } =0
 
