@@ -106,6 +106,7 @@ static void HandleMoveSwitching(void);
 static void SwitchIn_HandleSoundAndEnd(void);
 static void WaitForMonSelection(void);
 static void CompleteWhenChoseItem(void);
+static void Task_LaunchDamageAnim(u8);
 static void Task_LaunchLvlUpAnim(u8);
 static void Task_PrepareToGiveExpWithExpBar(u8);
 static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8);
@@ -234,7 +235,7 @@ static void HandleInputChooseAction(void)
 {
     u16 itemId = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
 
-    DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
+    DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 4, 2);
     DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
 
     if (JOY_REPEAT(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
@@ -374,7 +375,7 @@ static void HandleInputChooseTarget(void)
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseMove;
-        DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
+        DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 4, 2);
         DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
         EndBounceEffect(gMultiUsePlayerCursor, BOUNCE_HEALTHBOX);
     }
@@ -1151,13 +1152,22 @@ static void CompleteOnInactiveTextPrinter(void)
 #define tExpTask_battler    data[2]
 #define tExpTask_frames     data[10]
 
+static void Task_LaunchDamageAnim(u8 taskId)
+{
+    u8 battlerId = gTasks[taskId].tExpTask_battler;
+    u8 monIndex = gTasks[taskId].tExpTask_monId;
+
+    InitAndLaunchSpecialAnimation(battlerId, battlerId, battlerId, B_ANIM_DAMAGE);
+    DestroyTask(taskId);
+}
+
 static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
     u8 battlerId = gTasks[taskId].tExpTask_battler;
     s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
 
-    if (IsDoubleBattle() == TRUE || monId != gBattlerPartyIndexes[battlerId]) // Give exp without moving the expbar.
+    if (monId != gBattlerPartyIndexes[battlerId]) // Give exp without moving the expbar.
     {
         struct Pokemon *mon = &gPlayerParty[monId];
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -2697,9 +2707,18 @@ static void PlayerHandleCmd23(void)
 static void PlayerHandleHealthBarUpdate(void)
 {
     s16 hpVal;
+    u8 taskId;
+    u8 monId;
 
     LoadBattleBarGfx(0);
     hpVal = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+
+    monId = gBattleBufferA[gActiveBattler][1];
+
+    taskId = CreateTask(Task_LaunchDamageAnim, 10);
+    gTasks[taskId].tExpTask_monId = monId;
+    gTasks[taskId].tExpTask_gainedExp = 0;
+    gTasks[taskId].tExpTask_battler = gActiveBattler;
 
     // gPlayerPartyLostHP used by Battle Dome, but never read
     if (hpVal > 0)
@@ -2967,7 +2986,7 @@ static void PlayerHandleIntroTrainerBallThrow(void)
     gTasks[taskId].tBattlerId = gActiveBattler;
 
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
 
     gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
     gBattlerControllerFuncs[gActiveBattler] = BattleControllerDummy;
@@ -3038,8 +3057,8 @@ static void PlayerHandleDrawPartyStatusSummary(void)
         gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 0;
 
         // If intro, skip the delay after drawing
-        if (gBattleBufferA[gActiveBattler][2] != 0)
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
+        //if (gBattleBufferA[gActiveBattler][2] != 0)
+        //    gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
 
         gBattlerControllerFuncs[gActiveBattler] = EndDrawPartyStatusSummary;
     }
@@ -3057,7 +3076,7 @@ static void EndDrawPartyStatusSummary(void)
 static void PlayerHandleHidePartyStatusSummary(void)
 {
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
     PlayerBufferExecCompleted();
 }
 

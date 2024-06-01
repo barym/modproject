@@ -86,6 +86,7 @@ static void RecordedPlayerCmdEnd(void);
 static void RecordedPlayerBufferRunCommand(void);
 static void RecordedPlayerBufferExecCompleted(void);
 static void SwitchIn_WaitAndEnd(void);
+static void Task_LaunchDamageAnim(u8 taskId);
 static u32 CopyRecordedPlayerMonData(u8 monId, u8 *dst);
 static void SetRecordedPlayerMonData(u8 monId);
 static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit);
@@ -389,6 +390,15 @@ static void CompleteOnInactiveTextPrinter(void)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
         RecordedPlayerBufferExecCompleted();
+}
+
+static void Task_LaunchDamageAnim(u8 taskId)
+{
+    u8 battlerId = gTasks[taskId].data[2];
+    u8 monIndex = gTasks[taskId].data[0];
+
+    InitAndLaunchSpecialAnimation(battlerId, battlerId, battlerId, B_ANIM_DAMAGE);
+    DestroyTask(taskId);
 }
 
 static void DoHitAnimBlinkSpriteEffect(void)
@@ -1473,9 +1483,18 @@ static void RecordedPlayerHandleCmd23(void)
 static void RecordedPlayerHandleHealthBarUpdate(void)
 {
     s16 hpVal;
+    u8 monId;
+    u8 taskId;
 
     LoadBattleBarGfx(0);
     hpVal = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+
+    monId = gBattlerPartyIndexes[gActiveBattler];
+
+    taskId = CreateTask(Task_LaunchDamageAnim, 10);
+    gTasks[taskId].data[0] = monId;
+    gTasks[taskId].data[1] = 0;
+    gTasks[taskId].data[2] = gActiveBattler;
 
     if (hpVal != INSTANT_HP_BAR_DROP)
     {
@@ -1686,7 +1705,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(void)
     gTasks[taskId].data[0] = gActiveBattler;
 
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
 
     gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
     gBattlerControllerFuncs[gActiveBattler] = RecordedPlayerDummy;
@@ -1736,8 +1755,8 @@ static void RecordedPlayerHandleDrawPartyStatusSummary(void)
         gBattlerStatusSummaryTaskId[gActiveBattler] = CreatePartyStatusSummarySprites(gActiveBattler, (struct HpAndStatus *)&gBattleBufferA[gActiveBattler][4], gBattleBufferA[gActiveBattler][1], gBattleBufferA[gActiveBattler][2]);
         gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 0;
 
-        if (gBattleBufferA[gActiveBattler][2] != 0)
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
+        //if (gBattleBufferA[gActiveBattler][2] != 0)
+        //    gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
 
         gBattlerControllerFuncs[gActiveBattler] = EndDrawPartyStatusSummary;
     }
@@ -1755,7 +1774,7 @@ static void EndDrawPartyStatusSummary(void)
 static void RecordedPlayerHandleHidePartyStatusSummary(void)
 {
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
     RecordedPlayerBufferExecCompleted();
 }
 

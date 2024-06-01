@@ -296,6 +296,14 @@ $(FONTGFXDIR)/frlg_male.fwjpnfont: $(FONTGFXDIR)/japanese_frlg_male_font.png
 $(FONTGFXDIR)/frlg_female.fwjpnfont: $(FONTGFXDIR)/japanese_frlg_female_font.png
 	$(GFX) $< $@
 
+$(FONTGFXDIR)/battle.latfont: $(FONTGFXDIR)/battle.png
+	$(GFX) $< $@
+
+$(FONTGFXDIR)/level.latfont: $(FONTGFXDIR)/level.png
+	$(GFX) $< $@
+
+$(FONTGFXDIR)/hp.latfont: $(FONTGFXDIR)/hp.png
+	$(GFX) $< $@
 
 ### Miscellaneous ###
 graphics/title_screen/pokemon_logo.gbapal: %.gbapal: %.pal
@@ -313,6 +321,12 @@ $(MISCGFXDIR)/japanese_hof.4bpp: %.4bpp: %.png
 $(BATINTGFXDIR)/textbox.gbapal: $(BATINTGFXDIR)/textbox_0.gbapal \
                                 $(BATINTGFXDIR)/textbox_1.gbapal
 	@cat $^ >$@
+
+$(BATINTGFXDIR)/ball_display.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2
+
+$(BATINTGFXDIR)/gender.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 1 -mheight 2
 
 $(BTLANMSPRGFXDIR)/ice_cube.4bpp: $(BTLANMSPRGFXDIR)/ice_cube_0.4bpp \
                                   $(BTLANMSPRGFXDIR)/ice_cube_1.4bpp \

@@ -44,6 +44,11 @@ enum
 
 #define TAG_STATUS_SUMMARY_BALLS_TILE   0xD714
 
+#define TAG_STATUS_PLAYER1_TILE         0xD715
+#define TAG_STATUS_OPPONENT1_TILE       0xD716
+#define TAG_STATUS_PLAYER2_TILE         0xD717
+#define TAG_STATUS_OPPONENT2_TILE       0xD718
+
 #define TAG_HEALTHBAR_PAL               TAG_HEALTHBAR_PLAYER1_TILE
 #define TAG_HEALTHBOX_PAL               TAG_HEALTHBOX_PLAYER1_TILE
 
@@ -75,6 +80,7 @@ void InitBattlerHealthboxCoords(u8 battler);
 void UpdateHpTextInHealthbox(u8 healthboxSpriteId, s16 value, u8 maxOrCurrent);
 void SwapHpBarsWithHpText(void);
 u8 CreatePartyStatusSummarySprites(u8 battler, struct HpAndStatus *partyInfo, bool8 skipPlayer, bool8 isBattleStart);
+void Task_DestroyPartyStatusSummary(u8 taskId);
 void Task_HidePartyStatusSummary(u8 taskId);
 void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elementId);
 s32 MoveBattleBar(u8 battler, u8 healthboxSpriteId, u8 whichBar, u8 unused);

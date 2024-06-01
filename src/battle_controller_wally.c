@@ -94,6 +94,7 @@ static void WallyCmdEnd(void);
 static void WallyBufferRunCommand(void);
 static void WallyBufferExecCompleted(void);
 static void CompleteOnChosenItem(void);
+static void Task_LaunchDamageAnim(u8 taskId);
 static void Intro_WaitForShinyAnimAndHealthbox(void);
 static u32 CopyWallyMonData(u8 monId, u8 *dst);
 static void SetWallyMonData(u8 monId);
@@ -255,6 +256,15 @@ static void CompleteOnInactiveTextPrinter(void)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
         WallyBufferExecCompleted();
+}
+
+static void Task_LaunchDamageAnim(u8 taskId)
+{
+    u8 battlerId = gTasks[taskId].data[2];
+    u8 monIndex = gTasks[taskId].data[0];
+
+    InitAndLaunchSpecialAnimation(battlerId, battlerId, battlerId, B_ANIM_DAMAGE);
+    DestroyTask(taskId);
 }
 
 static void CompleteOnFinishedAnimation(void)
@@ -1268,9 +1278,18 @@ static void WallyHandleCmd23(void)
 static void WallyHandleHealthBarUpdate(void)
 {
     s16 hpVal;
+    u8 monId;
+    u8 taskId;
 
     LoadBattleBarGfx(0);
     hpVal = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+
+    monId = gBattlerPartyIndexes[gActiveBattler];
+
+    taskId = CreateTask(Task_LaunchDamageAnim, 10);
+    gTasks[taskId].data[0] = monId;
+    gTasks[taskId].data[1] = 0;
+    gTasks[taskId].data[2] = gActiveBattler;
 
     if (hpVal != INSTANT_HP_BAR_DROP)
     {
@@ -1452,7 +1471,7 @@ static void WallyHandleIntroTrainerBallThrow(void)
     gTasks[taskId].data[0] = gActiveBattler;
 
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
 
     gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
     gBattlerControllerFuncs[gActiveBattler] = BattleControllerDummy;

@@ -1314,15 +1314,15 @@ void StartHealthboxSlideIn(u8 battlerId)
 
     healthboxSprite->sSpeedX = 5;
     healthboxSprite->sSpeedY = 0;
-    healthboxSprite->x2 = 0x73;
-    healthboxSprite->y2 = 0;
+    healthboxSprite->x2 = 125;
+    healthboxSprite->y2 = 2;
     healthboxSprite->callback = SpriteCB_HealthboxSlideIn;
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
     {
         healthboxSprite->sSpeedX = -healthboxSprite->sSpeedX;
         healthboxSprite->sSpeedY = -healthboxSprite->sSpeedY;
         healthboxSprite->x2 = -healthboxSprite->x2;
-        healthboxSprite->y2 = -healthboxSprite->y2;
+        healthboxSprite->y2 = 0; //-healthboxSprite->y2;
     }
     gSprites[healthboxSprite->data[5]].callback(&gSprites[healthboxSprite->data[5]]);
     if (GetBattlerPosition(battlerId) == B_POSITION_PLAYER_RIGHT)
@@ -1343,7 +1343,7 @@ static void SpriteCB_HealthboxSlideIn(struct Sprite *sprite)
 {
     sprite->x2 -= sprite->sSpeedX;
     sprite->y2 -= sprite->sSpeedY;
-    if (sprite->x2 == 0 && sprite->y2 == 0)
+    if (sprite->x2 == 0) // && sprite->y2 == 2)
         sprite->callback = SpriteCallbackDummy;
 }
 

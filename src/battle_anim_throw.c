@@ -51,6 +51,7 @@ enum {
 
 static void AnimTask_UnusedLevelUpHealthBox_Step(u8);
 static void AnimTask_FlashHealthboxOnLevelUp_Step(u8);
+static void AnimTask_FlashHealthboxOnDamage_Step(u8);
 static void AnimTask_ThrowBall_Step(u8);
 static void SpriteCB_Ball_Throw(struct Sprite *);
 static void AnimTask_ThrowBall_StandingTrainer_Step(u8);
@@ -583,7 +584,7 @@ static void FreeHealthboxPalsForLevelUp(u8 battler)
     FreeSpritePaletteByTag(TAG_HEALTHBOX_PALS_1);
     FreeSpritePaletteByTag(TAG_HEALTHBOX_PALS_2);
     paletteId1 = IndexOfSpritePaletteTag(TAG_HEALTHBOX_PAL);
-    paletteId2 = IndexOfSpritePaletteTag(TAG_HEALTHBAR_PAL);
+    paletteId2 = IndexOfSpritePaletteTag(TAG_HEALTHBOX_PAL);
     gSprites[healthBoxSpriteId].oam.paletteNum = paletteId1;
     gSprites[spriteId1].oam.paletteNum = paletteId1;
     gSprites[spriteId2].oam.paletteNum = paletteId2;
@@ -632,6 +633,124 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
 
             paletteOffset = OBJ_PLTT_ID(paletteNum);
             BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2], RGB(20, 27, 31));
+            if (gTasks[taskId].data[2] == 0)
+                DestroyAnimVisualTask(taskId);
+            break;
+        }
+    }
+}
+
+static void LoadHealthboxPalsForDamage(u8 *paletteId1, u8 *paletteId2, u8 battler)
+{
+    u8 healthboxSpriteId;
+    u8 spriteId1, spriteId2;
+    u16 offset1, offset2;
+
+    healthboxSpriteId = gHealthboxSpriteIds[battler];
+    spriteId1 = gSprites[healthboxSpriteId].oam.affineParam; // healthbox sprite right id
+    spriteId2 = gSprites[healthboxSpriteId].data[5]; // healthbar sprite id
+    *paletteId1 = AllocSpritePalette(TAG_HEALTHBOX_PALS_1);
+    *paletteId2 = AllocSpritePalette(TAG_HEALTHBOX_PALS_2);
+
+    offset1 = OBJ_PLTT_ID(gSprites[healthboxSpriteId].oam.paletteNum);
+    offset2 = OBJ_PLTT_ID(gSprites[spriteId2].oam.paletteNum);
+    LoadPalette(&gPlttBufferUnfaded[offset1], OBJ_PLTT_ID(*paletteId1), PLTT_SIZE_4BPP);
+    LoadPalette(&gPlttBufferUnfaded[offset2], OBJ_PLTT_ID(*paletteId2), PLTT_SIZE_4BPP);
+
+    gSprites[healthboxSpriteId].oam.paletteNum = *paletteId1;
+    gSprites[spriteId1].oam.paletteNum = *paletteId1;
+    gSprites[spriteId2].oam.paletteNum = *paletteId1;
+}
+
+void AnimTask_LoadHealthboxPalsForDamage(u8 taskId)
+{
+    u8 paletteId1, paletteId2;
+    LoadHealthboxPalsForDamage(&paletteId1, &paletteId2, gBattleAnimAttacker);
+    DestroyAnimVisualTask(taskId);
+}
+
+static void FreeHealthboxPalsForDamage(u8 battler)
+{
+    u8 healthboxSpriteId;
+    u8 spriteId1, spriteId2;
+    u8 paletteId1, paletteId2;
+
+    healthboxSpriteId = gHealthboxSpriteIds[battler];
+    spriteId1 = gSprites[healthboxSpriteId].oam.affineParam;
+    spriteId2 = gSprites[healthboxSpriteId].data[5];
+
+    FreeSpritePaletteByTag(TAG_HEALTHBOX_PALS_1);
+    FreeSpritePaletteByTag(TAG_HEALTHBOX_PALS_2);
+    paletteId1 = IndexOfSpritePaletteTag(TAG_HEALTHBOX_PAL);
+    paletteId2 = IndexOfSpritePaletteTag(TAG_HEALTHBAR_PAL);
+    gSprites[healthboxSpriteId].oam.paletteNum = paletteId1;
+    gSprites[spriteId1].oam.paletteNum = paletteId1;
+    gSprites[spriteId2].oam.paletteNum = paletteId1;
+}
+
+void AnimTask_FreeHealthboxPalsForDamage(u8 taskId)
+{
+    FreeHealthboxPalsForDamage(gBattleAnimAttacker);
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_FlashHealthboxOnDamage(u8 taskId)
+{
+    gTasks[taskId].data[10] = gBattleAnimArgs[0];
+    gTasks[taskId].data[11] = gBattleAnimArgs[1];
+    gTasks[taskId].func = AnimTask_FlashHealthboxOnDamage_Step;
+}
+
+static void AnimTask_FlashHealthboxOnDamage_Step(u8 taskId)
+{
+    u8 paletteNum;
+    u32 paletteOffset, colorOffset;
+
+    gTasks[taskId].data[0]++;
+    if (gTasks[taskId].data[0]++ >= gTasks[taskId].data[11])
+    {
+        gTasks[taskId].data[0] = 0;
+        paletteNum = IndexOfSpritePaletteTag(TAG_HEALTHBOX_PALS_1);
+        colorOffset = gTasks[taskId].data[10] == 0 ? 6 : 2;
+        switch (gTasks[taskId].data[1])
+        {
+        case 0:
+            gTasks[taskId].data[2] += 1;
+            if (gTasks[taskId].data[2] > 4)
+                gTasks[taskId].data[2] = 4;
+
+            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            BlendPalette(paletteOffset, 16, gTasks[taskId].data[2] * 2, 0x0010);
+            if (gTasks[taskId].data[2] == 4)
+                gTasks[taskId].data[1]++;
+            break;
+        case 1:
+            gTasks[taskId].data[2] -= 1;
+            if (gTasks[taskId].data[2] < 0)
+                gTasks[taskId].data[2] = 0;
+
+            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            BlendPalette(paletteOffset, 16, gTasks[taskId].data[2] * 2, 0x0010);
+            if (gTasks[taskId].data[2] == 0)
+                gTasks[taskId].data[1]++;
+            break;
+        case 2:
+            gTasks[taskId].data[2] += 1;
+            if (gTasks[taskId].data[2] > 4)
+                gTasks[taskId].data[2] = 4;
+
+            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            BlendPalette(paletteOffset, 16, gTasks[taskId].data[2] * 2, 0x0010);
+            if (gTasks[taskId].data[2] == 4)
+                gTasks[taskId].data[1]++;
+            break;
+        case 3:
+            gTasks[taskId].data[2] -= 1;
+            if (gTasks[taskId].data[2] < 0)
+                gTasks[taskId].data[2] = 0;
+
+            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            BlendPalette(paletteOffset, 16, gTasks[taskId].data[2] * 2, 0x0010);
             if (gTasks[taskId].data[2] == 0)
                 DestroyAnimVisualTask(taskId);
             break;

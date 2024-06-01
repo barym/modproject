@@ -93,6 +93,8 @@ static void BattleIntroGetMonsData(void);
 static void BattleIntroPrepareBackgroundSlide(void);
 static void BattleIntroDrawTrainersOrMonsSprites(void);
 static void BattleIntroDrawPartySummaryScreens(void);
+static void BattleIntroDrawOpponentPartySummaryScreen(void);
+static void BattleIntroDrawPlayerPartySummaryScreen(void);
 static void BattleIntroPrintTrainerWantsToBattle(void);
 static void BattleIntroPrintWildMonAttacked(void);
 static void BattleIntroPrintOpponentSendsOut(void);
@@ -2963,7 +2965,11 @@ void EndBounceEffect(u8 battler, u8 which)
     }
 
     gSprites[bouncerSpriteId].x2 = 0;
-    gSprites[bouncerSpriteId].y2 = 0;
+
+    if (which == BOUNCE_HEALTHBOX && GetBattlerSide(battler) == B_SIDE_PLAYER)
+        gSprites[bouncerSpriteId].y2 = 2;
+    else
+        gSprites[bouncerSpriteId].y2 = 0;
 }
 
 static void SpriteCB_BounceEffect(struct Sprite *sprite)
@@ -2976,7 +2982,11 @@ static void SpriteCB_BounceEffect(struct Sprite *sprite)
     else
         index = sprite->sSinIndex;
 
-    gSprites[bouncerSpriteId].y2 = Sin(index, sprite->sAmplitude) + sprite->sAmplitude;
+    if (sprite->sWhich == BOUNCE_HEALTHBOX && index == 64)
+        gSprites[bouncerSpriteId].y2 = 3;
+    else
+        gSprites[bouncerSpriteId].y2 = Sin(index, sprite->sAmplitude) + sprite->sAmplitude;
+
     sprite->sSinIndex = (sprite->sSinIndex + sprite->sDelta) & 0xFF;
 }
 
@@ -3485,7 +3495,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
         if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
             BattleArena_InitPoints();
     }
-    gBattleMainFunc = BattleIntroDrawPartySummaryScreens;
+    gBattleMainFunc = BattleIntroDrawOpponentPartySummaryScreen;
 }
 
 static void BattleIntroDrawPartySummaryScreens(void)
@@ -3559,6 +3569,92 @@ static void BattleIntroDrawPartySummaryScreens(void)
 
         gBattleMainFunc = BattleIntroPrintWildMonAttacked;
     }
+}
+
+static void BattleIntroDrawOpponentPartySummaryScreen(void)
+{
+    s32 i;
+    struct HpAndStatus hpStatus[PARTY_SIZE];
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
+            {
+                hpStatus[i].hp = HP_EMPTY_SLOT;
+                hpStatus[i].status = 0;
+            }
+            else
+            {
+                hpStatus[i].hp = GetMonData(&gEnemyParty[i], MON_DATA_HP);
+                hpStatus[i].status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
+            }
+        }
+        gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
+        MarkBattlerForControllerExec(gActiveBattler);
+
+        gBattleMainFunc = BattleIntroPrintTrainerWantsToBattle;
+    }
+    else
+    {
+        // The struct gets set here, but nothing is ever done with it since
+        // wild battles don't show the party summary.
+        // Still, there's no point in having dead code.
+
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
+            {
+                hpStatus[i].hp = HP_EMPTY_SLOT;
+                hpStatus[i].status = 0;
+            }
+            else
+            {
+                hpStatus[i].hp = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+                hpStatus[i].status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
+            }
+        }
+
+        gBattleMainFunc = BattleIntroPrintWildMonAttacked;
+    }
+}
+
+static void BattleIntroDrawPlayerPartySummaryScreen(void)
+{
+    s32 i;
+    struct HpAndStatus hpStatus[PARTY_SIZE];
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    PrepareStringBattle(STRINGID_EMPTYSTRING3, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE
+             || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
+            {
+                hpStatus[i].hp = HP_EMPTY_SLOT;
+                hpStatus[i].status = 0;
+            }
+            else
+            {
+                hpStatus[i].hp = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+                hpStatus[i].status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
+            }
+        }
+        gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+
+        BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
+        MarkBattlerForControllerExec(gActiveBattler);
+
+        gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
 }
 
 static void BattleIntroPrintTrainerWantsToBattle(void)
@@ -3691,7 +3787,7 @@ static void BattleIntroRecordMonsToDex(void)
                 HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
             }
         }
-        gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
+        gBattleMainFunc = BattleIntroDrawPlayerPartySummaryScreen;
     }
 }
 

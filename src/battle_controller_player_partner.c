@@ -87,6 +87,7 @@ static void PlayerPartnerCmdEnd(void);
 
 static void PlayerPartnerBufferRunCommand(void);
 static void PlayerPartnerBufferExecCompleted(void);
+static void Task_LaunchDamageAnim(u8 taskId);
 static void Task_LaunchLvlUpAnim(u8 taskId);
 static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8 taskId);
 static void Task_PrepareToGiveExpWithExpBar(u8 taskId);
@@ -308,6 +309,15 @@ static void CompleteOnInactiveTextPrinter(void)
 #define tExpTask_gainedExp  data[1]
 #define tExpTask_bank       data[2]
 #define tExpTask_frames     data[10]
+
+static void Task_LaunchDamageAnim(u8 taskId)
+{
+    u8 battlerId = gTasks[taskId].data[2];
+    u8 monIndex = gTasks[taskId].data[0];
+
+    InitAndLaunchSpecialAnimation(battlerId, battlerId, battlerId, B_ANIM_DAMAGE);
+    DestroyTask(taskId);
+}
 
 static void Task_GiveExpToMon(u8 taskId)
 {
@@ -1569,9 +1579,18 @@ static void PlayerPartnerHandleCmd23(void)
 static void PlayerPartnerHandleHealthBarUpdate(void)
 {
     s16 hpVal;
+    u8 monId;
+    u8 taskId;
 
     LoadBattleBarGfx(0);
     hpVal = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+
+    monId = gBattlerPartyIndexes[gActiveBattler];
+
+    taskId = CreateTask(Task_LaunchDamageAnim, 10);
+    gTasks[taskId].data[0] = monId;
+    gTasks[taskId].data[1] = 0;
+    gTasks[taskId].data[2] = gActiveBattler;
 
     if (hpVal != INSTANT_HP_BAR_DROP)
     {
@@ -1809,7 +1828,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(void)
     gTasks[taskId].data[0] = gActiveBattler;
 
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
 
     gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
     gBattlerControllerFuncs[gActiveBattler] = PlayerPartnerDummy;
@@ -1859,8 +1878,8 @@ static void PlayerPartnerHandleDrawPartyStatusSummary(void)
         gBattlerStatusSummaryTaskId[gActiveBattler] = CreatePartyStatusSummarySprites(gActiveBattler, (struct HpAndStatus *)&gBattleBufferA[gActiveBattler][4], gBattleBufferA[gActiveBattler][1], gBattleBufferA[gActiveBattler][2]);
         gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 0;
 
-        if (gBattleBufferA[gActiveBattler][2] != 0)
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
+        //if (gBattleBufferA[gActiveBattler][2] != 0)
+        //    gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
 
         gBattlerControllerFuncs[gActiveBattler] = EndDrawPartyStatusSummary;
     }
@@ -1878,7 +1897,7 @@ static void EndDrawPartyStatusSummary(void)
 static void PlayerPartnerHandleHidePartyStatusSummary(void)
 {
     if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
+        gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_DestroyPartyStatusSummary;
     PlayerPartnerBufferExecCompleted();
 }
 

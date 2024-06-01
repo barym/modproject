@@ -2870,7 +2870,7 @@ BattleScript_FaintedMonTryChoose::
 	waitstate
 	returnatktoball
 	waitstate
-	drawpartystatussummary BS_ATTACKER
+	@drawpartystatussummary BS_ATTACKER
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
@@ -2881,7 +2881,7 @@ BattleScript_FaintedMonTryChoose::
 	switchineffects BS_ATTACKER
 	resetsentmonsvalue
 BattleScript_FaintedMonSendOutNew::
-	drawpartystatussummary BS_FAINTED
+	@drawpartystatussummary BS_FAINTED
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
 	hpthresholds BS_FAINTED
@@ -2904,7 +2904,7 @@ BattleScript_LinkHandleFaintedMonMultipleStart::
 	switchhandleorder BS_FAINTED, 0
 BattleScript_LinkHandleFaintedMonLoop::
 	switchhandleorder BS_FAINTED, 3
-	drawpartystatussummary BS_FAINTED
+	@drawpartystatussummary BS_FAINTED
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
 	hpthresholds BS_FAINTED
@@ -3114,7 +3114,7 @@ BattleScript_DoSwitchOut::
 	waitstate
 	returnatktoball
 	waitstate
-	drawpartystatussummary BS_ATTACKER
+	@drawpartystatussummary BS_ATTACKER
 	switchhandleorder BS_ATTACKER, 1
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
