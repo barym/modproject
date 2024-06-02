@@ -689,7 +689,6 @@ gSongTable::
 	song mus_dp_slots_jackpot, 0, 0
 	song mus_dp_credits, 0, 0
 	song mus_dp_slots_unused, 0, 0
-	song mus_pl_fight_area_day, 0, 0
 	song mus_pl_tv_broadcast, 0, 0
 	song mus_pl_tv_end, 2, 2
 	song mus_pl_intro, 0, 0
