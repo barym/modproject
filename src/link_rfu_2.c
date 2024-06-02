@@ -77,7 +77,7 @@ struct RfuDebug
     u8 unused4[88];
 };
 
-EWRAM_DATA u32 gRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {}; //ADDITION
+EWRAM_DATA u32 gRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {};
 EWRAM_DATA struct RfuManager gRfu = {};
 
 static u8 sHeldKeyCount;

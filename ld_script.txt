@@ -3,11 +3,6 @@ ENTRY(Start)
 gNumMusicPlayers = 4;
 gMaxLines = 0;
 
-/* Modify the following load addresses as needed to make more room. Alternately, delete both the
-   declarations below and their references further down to get rid of the gaps.                  */
-
-
-
 SECTIONS {
     . = 0x2000000;
 
@@ -979,6 +974,57 @@ SECTIONS {
         sound/songs/midi/se_pike_curtain_close.o(.rodata);
         sound/songs/midi/se_pike_curtain_open.o(.rodata);
         sound/songs/midi/se_sudowoodo_shake.o(.rodata);
+        sound/songs/midi/ph_trap_blend.o(.rodata);
+        sound/songs/midi/ph_trap_held.o(.rodata);
+        sound/songs/midi/ph_trap_solo.o(.rodata);
+        sound/songs/midi/ph_face_blend.o(.rodata);
+        sound/songs/midi/ph_face_held.o(.rodata);
+        sound/songs/midi/ph_face_solo.o(.rodata);
+        sound/songs/midi/ph_cloth_blend.o(.rodata);
+        sound/songs/midi/ph_cloth_held.o(.rodata);
+        sound/songs/midi/ph_cloth_solo.o(.rodata);
+        sound/songs/midi/ph_dress_blend.o(.rodata);
+        sound/songs/midi/ph_dress_held.o(.rodata);
+        sound/songs/midi/ph_dress_solo.o(.rodata);
+        sound/songs/midi/ph_fleece_blend.o(.rodata);
+        sound/songs/midi/ph_fleece_held.o(.rodata);
+        sound/songs/midi/ph_fleece_solo.o(.rodata);
+        sound/songs/midi/ph_kit_blend.o(.rodata);
+        sound/songs/midi/ph_kit_held.o(.rodata);
+        sound/songs/midi/ph_kit_solo.o(.rodata);
+        sound/songs/midi/ph_price_blend.o(.rodata);
+        sound/songs/midi/ph_price_held.o(.rodata);
+        sound/songs/midi/ph_price_solo.o(.rodata);
+        sound/songs/midi/ph_lot_blend.o(.rodata);
+        sound/songs/midi/ph_lot_held.o(.rodata);
+        sound/songs/midi/ph_lot_solo.o(.rodata);
+        sound/songs/midi/ph_goat_blend.o(.rodata);
+        sound/songs/midi/ph_goat_held.o(.rodata);
+        sound/songs/midi/ph_goat_solo.o(.rodata);
+        sound/songs/midi/ph_thought_blend.o(.rodata);
+        sound/songs/midi/ph_thought_held.o(.rodata);
+        sound/songs/midi/ph_thought_solo.o(.rodata);
+        sound/songs/midi/ph_choice_blend.o(.rodata);
+        sound/songs/midi/ph_choice_held.o(.rodata);
+        sound/songs/midi/ph_choice_solo.o(.rodata);
+        sound/songs/midi/ph_mouth_blend.o(.rodata);
+        sound/songs/midi/ph_mouth_held.o(.rodata);
+        sound/songs/midi/ph_mouth_solo.o(.rodata);
+        sound/songs/midi/ph_foot_blend.o(.rodata);
+        sound/songs/midi/ph_foot_held.o(.rodata);
+        sound/songs/midi/ph_foot_solo.o(.rodata);
+        sound/songs/midi/ph_goose_blend.o(.rodata);
+        sound/songs/midi/ph_goose_held.o(.rodata);
+        sound/songs/midi/ph_goose_solo.o(.rodata);
+        sound/songs/midi/ph_strut_blend.o(.rodata);
+        sound/songs/midi/ph_strut_held.o(.rodata);
+        sound/songs/midi/ph_strut_solo.o(.rodata);
+        sound/songs/midi/ph_cure_blend.o(.rodata);
+        sound/songs/midi/ph_cure_held.o(.rodata);
+        sound/songs/midi/ph_cure_solo.o(.rodata);
+        sound/songs/midi/ph_nurse_blend.o(.rodata);
+        sound/songs/midi/ph_nurse_held.o(.rodata);
+        sound/songs/midi/ph_nurse_solo.o(.rodata);
         sound/songs/midi/mus_littleroot_test.o(.rodata);
         sound/songs/midi/mus_gsc_route38.o(.rodata);
         sound/songs/midi/mus_caught.o(.rodata);
@@ -1072,7 +1118,7 @@ SECTIONS {
         sound/songs/midi/mus_contest.o(.rodata);
         sound/songs/midi/mus_encounter_magma.o(.rodata);
         sound/songs/midi/mus_intro_battle.o(.rodata);
-        sound/songs/midi/mus_abnormal_weather.o(.rodata);
+        sound/songs/mus_weather_kyogre.o(.rodata);
         sound/songs/midi/mus_weather_groudon.o(.rodata);
         sound/songs/midi/mus_sootopolis.o(.rodata);
         sound/songs/midi/mus_contest_results.o(.rodata);
@@ -1086,23 +1132,6 @@ SECTIONS {
         sound/songs/midi/mus_encounter_champion.o(.rodata);
         sound/songs/midi/mus_credits.o(.rodata);
         sound/songs/midi/mus_end.o(.rodata);
-        sound/songs/midi/mus_b_frontier.o(.rodata);
-        sound/songs/midi/mus_b_arena.o(.rodata);
-        sound/songs/midi/mus_obtain_b_points.o(.rodata);
-        sound/songs/midi/mus_register_match_call.o(.rodata);
-        sound/songs/midi/mus_b_pyramid.o(.rodata);
-        sound/songs/midi/mus_b_pyramid_top.o(.rodata);
-        sound/songs/midi/mus_b_palace.o(.rodata);
-        sound/songs/midi/mus_rayquaza_appears.o(.rodata);
-        sound/songs/midi/mus_b_tower.o(.rodata);
-        sound/songs/midi/mus_obtain_symbol.o(.rodata);
-        sound/songs/midi/mus_b_dome.o(.rodata);
-        sound/songs/midi/mus_b_pike.o(.rodata);
-        sound/songs/midi/mus_b_factory.o(.rodata);
-        sound/songs/midi/mus_vs_rayquaza.o(.rodata);
-        sound/songs/midi/mus_vs_frontier_brain.o(.rodata);
-        sound/songs/midi/mus_vs_mew.o(.rodata);
-        sound/songs/midi/mus_b_dome_lobby.o(.rodata);
         sound/songs/midi/mus_vs_wild.o(.rodata);
         sound/songs/midi/mus_vs_aqua_magma.o(.rodata);
         sound/songs/midi/mus_vs_trainer.o(.rodata);
@@ -1151,9 +1180,6 @@ SECTIONS {
         sound/songs/midi/mus_rg_silph.o(.rodata);
         sound/songs/midi/mus_rg_fuchsia.o(.rodata);
         sound/songs/midi/mus_rg_celadon.o(.rodata);
-        sound/songs/midi/mus_rg_victory_trainer.o(.rodata);
-        sound/songs/midi/mus_rg_victory_wild.o(.rodata);
-        sound/songs/midi/mus_rg_victory_gym_leader.o(.rodata);
         sound/songs/midi/mus_rg_vermillion.o(.rodata);
         sound/songs/midi/mus_rg_pewter.o(.rodata);
         sound/songs/midi/mus_rg_encounter_rival.o(.rodata);
@@ -1172,11 +1198,7 @@ SECTIONS {
         sound/songs/midi/mus_rg_net_center.o(.rodata);
         sound/songs/midi/mus_rg_mystery_gift.o(.rodata);
         sound/songs/midi/mus_rg_berry_pick.o(.rodata);
-        sound/songs/midi/mus_rg_sevii_cave.o(.rodata);
-        sound/songs/midi/mus_rg_teachy_tv_show.o(.rodata);
         sound/songs/midi/mus_rg_sevii_route.o(.rodata);
-        sound/songs/midi/mus_rg_sevii_dungeon.o(.rodata);
-        sound/songs/midi/mus_rg_sevii_123.o(.rodata);
         sound/songs/midi/mus_rg_sevii_45.o(.rodata);
         sound/songs/midi/mus_rg_sevii_67.o(.rodata);
         sound/songs/midi/mus_rg_poke_flute.o(.rodata);
@@ -1188,6 +1210,23 @@ SECTIONS {
         sound/songs/midi/mus_rg_trainer_tower.o(.rodata);
         sound/songs/midi/mus_rg_slow_pallet.o(.rodata);
         sound/songs/midi/mus_rg_teachy_tv_menu.o(.rodata);
+        sound/songs/midi/mus_abnormal_weather.o(.rodata);
+        sound/songs/midi/mus_b_frontier.o(.rodata);
+        sound/songs/midi/mus_b_arena.o(.rodata);
+        sound/songs/midi/mus_obtain_b_points.o(.rodata);
+        sound/songs/midi/mus_register_match_call.o(.rodata);
+        sound/songs/midi/mus_b_pyramid.o(.rodata);
+        sound/songs/midi/mus_b_pyramid_top.o(.rodata);
+        sound/songs/midi/mus_b_palace.o(.rodata);
+        sound/songs/midi/mus_rayquaza_appears.o(.rodata);
+        sound/songs/midi/mus_b_tower.o(.rodata);
+        sound/songs/midi/mus_obtain_symbol.o(.rodata);
+        sound/songs/midi/mus_b_dome.o(.rodata);
+        sound/songs/midi/mus_b_pike.o(.rodata);
+        sound/songs/midi/mus_b_factory.o(.rodata);
+        sound/songs/midi/mus_vs_frontier_brain.o(.rodata);
+        sound/songs/midi/mus_vs_mew.o(.rodata);
+        sound/songs/midi/mus_b_dome_lobby.o(.rodata);
         sound/songs/midi/mus_dp_twinleaf_day.o(.rodata);
         sound/songs/midi/mus_dp_sandgem_day.o(.rodata);
         sound/songs/midi/mus_dp_floaroma_day.o(.rodata);
@@ -1555,57 +1594,6 @@ SECTIONS {
         sound/songs/midi/mus_hg_obtain_castle_points.o(.rodata);
         sound/songs/midi/mus_hg_obtain_b_points.o(.rodata);
         sound/songs/midi/mus_hg_win_minigame.o(.rodata);
-        sound/songs/midi/ph_trap_blend.o(.rodata);
-        sound/songs/midi/ph_trap_held.o(.rodata);
-        sound/songs/midi/ph_trap_solo.o(.rodata);
-        sound/songs/midi/ph_face_blend.o(.rodata);
-        sound/songs/midi/ph_face_held.o(.rodata);
-        sound/songs/midi/ph_face_solo.o(.rodata);
-        sound/songs/midi/ph_cloth_blend.o(.rodata);
-        sound/songs/midi/ph_cloth_held.o(.rodata);
-        sound/songs/midi/ph_cloth_solo.o(.rodata);
-        sound/songs/midi/ph_dress_blend.o(.rodata);
-        sound/songs/midi/ph_dress_held.o(.rodata);
-        sound/songs/midi/ph_dress_solo.o(.rodata);
-        sound/songs/midi/ph_fleece_blend.o(.rodata);
-        sound/songs/midi/ph_fleece_held.o(.rodata);
-        sound/songs/midi/ph_fleece_solo.o(.rodata);
-        sound/songs/midi/ph_kit_blend.o(.rodata);
-        sound/songs/midi/ph_kit_held.o(.rodata);
-        sound/songs/midi/ph_kit_solo.o(.rodata);
-        sound/songs/midi/ph_price_blend.o(.rodata);
-        sound/songs/midi/ph_price_held.o(.rodata);
-        sound/songs/midi/ph_price_solo.o(.rodata);
-        sound/songs/midi/ph_lot_blend.o(.rodata);
-        sound/songs/midi/ph_lot_held.o(.rodata);
-        sound/songs/midi/ph_lot_solo.o(.rodata);
-        sound/songs/midi/ph_goat_blend.o(.rodata);
-        sound/songs/midi/ph_goat_held.o(.rodata);
-        sound/songs/midi/ph_goat_solo.o(.rodata);
-        sound/songs/midi/ph_thought_blend.o(.rodata);
-        sound/songs/midi/ph_thought_held.o(.rodata);
-        sound/songs/midi/ph_thought_solo.o(.rodata);
-        sound/songs/midi/ph_choice_blend.o(.rodata);
-        sound/songs/midi/ph_choice_held.o(.rodata);
-        sound/songs/midi/ph_choice_solo.o(.rodata);
-        sound/songs/midi/ph_mouth_blend.o(.rodata);
-        sound/songs/midi/ph_mouth_held.o(.rodata);
-        sound/songs/midi/ph_mouth_solo.o(.rodata);
-        sound/songs/midi/ph_foot_blend.o(.rodata);
-        sound/songs/midi/ph_foot_held.o(.rodata);
-        sound/songs/midi/ph_foot_solo.o(.rodata);
-        sound/songs/midi/ph_goose_blend.o(.rodata);
-        sound/songs/midi/ph_goose_held.o(.rodata);
-        sound/songs/midi/ph_goose_solo.o(.rodata);
-        sound/songs/midi/ph_strut_blend.o(.rodata);
-        sound/songs/midi/ph_strut_held.o(.rodata);
-        sound/songs/midi/ph_strut_solo.o(.rodata);
-        sound/songs/midi/ph_cure_blend.o(.rodata);
-        sound/songs/midi/ph_cure_held.o(.rodata);
-        sound/songs/midi/ph_cure_solo.o(.rodata);
-        sound/songs/midi/ph_nurse_blend.o(.rodata);
-        sound/songs/midi/ph_nurse_held.o(.rodata);
-        sound/songs/midi/ph_nurse_solo.o(.rodata);
         sound/songs/midi/mus_mm_stone_tower.o(.rodata);
         sound/songs/midi/mus_sa2_intro.o(.rodata);
         sound/songs/midi/mus_sa2_egg_utopia__act_1.o(.rodata);
@@ -1672,6 +1660,18 @@ SECTIONS {
         data/multiboot_ereader.o(.rodata);
         data/multiboot_berry_glitch_fix.o(.rodata);
         data/multiboot_pokemon_colosseum.o(.rodata);
+    } =0
+
+    anim_mon_front_pic_data :
+    ALIGN(4)
+    {
+        src/anim_mon_front_pics.o(.rodata);
+    } =0
+
+    gfx_data  :
+    ALIGN(4)
+    {
+        src/graphics.o(.rodata);
     } =0
 
     extra :
