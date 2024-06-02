@@ -1962,8 +1962,8 @@ static void OpponentHandleDrawPartyStatusSummary(void)
         gBattlerStatusSummaryTaskId[gActiveBattler] = CreatePartyStatusSummarySprites(gActiveBattler, (struct HpAndStatus *)&gBattleBufferA[gActiveBattler][4], gBattleBufferA[gActiveBattler][1], gBattleBufferA[gActiveBattler][2]);
         gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 0;
 
-        if (gBattleBufferA[gActiveBattler][2] != 0)
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
+        // if (gBattleBufferA[gActiveBattler][2] != 0)
+        //     gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].partyStatusDelayTimer = 93;
 
         gBattlerControllerFuncs[gActiveBattler] = EndDrawPartyStatusSummary;
     }
