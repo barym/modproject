@@ -1735,3 +1735,22 @@ const u16 gTilesetPalettes_Route311[][16] =
 };
 
 const u32 gTilesetTiles_Route311[] = INCBIN_U32("data/tilesets/secondary/route_311/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Iremia[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/iremia/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Iremia[] = INCBIN_U32("data/tilesets/secondary/iremia/tiles.4bpp.lz");

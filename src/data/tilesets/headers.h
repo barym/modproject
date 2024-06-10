@@ -880,3 +880,14 @@ const struct Tileset gTileset_Route311 =
     .metatileAttributes = gMetatileAttributes_Route311,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Iremia =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Iremia,
+    .palettes = gTilesetPalettes_Iremia,
+    .metatiles = gMetatiles_Iremia,
+    .metatileAttributes = gMetatileAttributes_Iremia,
+    .callback = NULL,
+};

@@ -264,6 +264,9 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
+// gTileset_Iremia
+#define METATILE_Iremia_Door  0x22C
+
 // gTileset_Kentro
 #define METATILE_Kentro_Pavement     0x2BB
 #define METATILE_Kentro_Road         0x301

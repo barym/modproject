@@ -222,3 +222,6 @@ const u16 gMetatileAttributes_AtmosCavern[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_Route311[] = INCBIN_U16("data/tilesets/secondary/route_311/metatiles.bin");
 const u16 gMetatileAttributes_Route311[] = INCBIN_U16("data/tilesets/secondary/route_311/metatile_attributes.bin");
+
+const u16 gMetatiles_Iremia[] = INCBIN_U16("data/tilesets/secondary/iremia/metatiles.bin");
+const u16 gMetatileAttributes_Iremia[] = INCBIN_U16("data/tilesets/secondary/iremia/metatile_attributes.bin");
